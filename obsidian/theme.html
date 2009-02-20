@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+
+  Obsidian [version 1.00]
+  Tumblr theme by Liam Cooke <http://inky.tumblr.com/>
+  Free to use and alter, as long as credit is given.
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+    <!-- DEFAULT COLORS -->
+    <meta name="color:Background" content="#000000"/>
+    <meta name="color:Primary Text" content="#D4DBC7"/>
+    <meta name="color:Secondary Text" content="#585F50"/>
+    <meta name="color:Post Background" content="#0B0C0A"/>
+    <meta name="color:Block Background" content="#10110F"/>
+    <meta name="color:Borders" content="#22241C"/>
+    <meta name="color:Link" content="#92CF27"/>
+    <meta name="color:Link Hover" content="#E08048"/>
+    <meta name="color:Link Hover Background" content="#0B0C0A"/>
+    <meta name="color:Link Hover Border" content="#22241C"/>
+    <meta name="color:Strong Link" content="#EB6111"/>
+    <meta name="color:Strong Link Hover" content="#E08048"/>
+    <meta name="color:Logo" content="#47403B"/>
+    <meta name="color:Logo Hover" content="#EB6111"/>
+    <!-- END DEFAULT COLORS -->
+
+    <title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+    <link rel="shortcut icon" href="{Favicon}"/>
+    <style type="text/css" media="all">
+
+      /* ----- reset ----- */
+
+      body, div, ul, ol, li, dl, dt, dd,
+      h1, h2, h3, h4, h5, h6,
+      p, pre, blockquote, form, fieldset {
+        margin: 0;
+        padding: 0;
+      }
+      
+      fieldset, img, abbr, acronym {
+        border: none;
+      }
+      
+      form, fieldset, input, textarea, button {
+        font: inherit;
+      }
+
+      cite, code, dfn, var {
+        font-style: normal;
+        font-weight: normal;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-size: 100%;
+        font-weight: bold;
+      }
+
+      /* ----- base ----- */
+
+      html {
+        font-size: 100.01%;
+      }
+
+      body {
+        background: {color:Background};
+        color: {color:Primary Text};
+        font: 1em/1.65em;
+      }
+
+      p, pre, blockquote,
+      h1, h2, h3, h4, h5, h6,
+      ul, ol, li, dl, dt, dd,
+      form, fieldset,
+      .caption {
+        line-height: 1.65em;
+      }
+
+      h2 {
+        font-size: 1.6em;
+        font-variant: small-caps;
+        margin: 1.25em 0.625em 0.625em;
+      }
+      h3 {
+        font-size: 1.25em;
+        margin: 1.6em 0.8em 0.8em;
+      }
+      h4 {
+        font-size: 1em;
+        margin: 2em 1em 1em;
+      }
+
+      p, pre {
+        margin: 1em;
+      }
+
+      ul, ol {
+        margin: 1em 1em 1em 3em;
+      }
+
+      dl {
+        margin: 1em;
+      }
+      dt {
+        font-weight: bold;
+        margin: 0;
+      }
+      dd {
+        margin: 0 1em 0.5em 2em;
+      }
+
+      blockquote {
+        font-style: italic;
+        margin: 1em;
+        padding: 0 1em;
+      }
+      blockquote p {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      blockquote i, blockquote em {
+        font-style: normal;
+        letter-spacing: 0.075em;
+        padding: 0 0.075em;
+      }
+
+      abbr, acronym, .caps {
+        font-size: 0.9em;
+        text-transform: uppercase;
+        letter-spacing: 0.125ex;
+      }
+      .small-caps {
+        font-variant: small-caps;
+        letter-spacing: 0.125ex;
+      }
+
+      code {
+        background: {color:Block Background};
+        border: 1px solid {color:Borders};
+      }
+      pre code {
+        display: block;
+        padding: 0.2em 0.4em;
+      }
+
+      input, textarea, button
+      {
+        margin: 0.05em;
+        padding: 0 0.05em;
+      }
+
+      .caption {
+        margin: 1em;
+      }
+      .caption p, .caption pre,
+      .caption dl, .caption blockquote {
+        margin: 1em 0;
+      }
+
+      .caption ul, .caption ol {
+        margin: 1em 0 1em 2em;
+      }
+
+      .clearing {
+        clear: both;
+        font-size: 1px !important;
+        height: 0;
+        line-height: 1px !important;
+        overflow: hidden;
+      }
+
+      /* ----- layout ----- */
+
+      #header {
+        font-size: 3em;
+      }
+
+      #tumblelog {
+        float: right;
+        margin: 3em 0 2em -16em;
+        width: 100%;
+      }
+
+      #posts {
+        margin: 0 1em 0 16em;
+      }
+
+      #sidebar-wrap {
+        width: 14em;
+        float: left;
+      }
+
+
+      /* ----- sidebar ----- */
+
+      #sidebar {
+        color: {color:Secondary Text};
+        margin: 3em 0 1em 2em;
+      }
+
+      #sidebar h2 {
+        display: none;
+      }
+
+      #sidebar #description {
+        margin: 3em 0.5em;
+      }
+
+      #sidebar ul {
+        margin: 3em 0;
+        list-style: none;
+      }
+
+      #sidebar dl {
+        margin: 3em 0;
+      }
+      #sidebar dt {
+        margin-left: 0.5em;
+      }
+      #sidebar dd {
+        font-size: 0.9em;
+        margin-left: 1.5em;
+      }
+      #sidebar dl a {
+        display: block;
+        font-weight: normal;
+      }
+
+      /* ----- footer ----- */
+
+      #footer {
+        clear: both;
+        background: {color:Block Background};
+        color: {color:Secondary Text};
+        font-size: 0.9em;
+        padding: 1em 5%;
+        border-top: 4px solid {color:Borders};
+      }
+
+      #footer dt {
+        clear: left;
+        display: inline;
+        float: left;
+        margin: 0 -1px 1em 0;
+        text-align: right;
+        width: 20%;
+      }
+
+      #footer dd {
+        clear: right;
+        float: left;
+        margin: 0 0 1em;
+        padding-left: 1.5em;
+        width: 70%;
+      }
+
+
+      /* ----- posts ----- */
+
+      .post {
+        max-width: 40em;
+        min-width: 500px;
+        margin: 0 0 4em;
+      }
+
+      .post .body {
+        background: {color:Post Background};
+        margin: 0 1em;
+        padding: 1em 1em 1.5em;
+        border: 1px solid {color:Borders};
+      }
+
+      .post h2 {
+        margin: 0.375em 0.625em 0;
+        line-height: 1em;
+      }
+
+      .post ul {
+        margin-left: 2em;
+        list-style: square;
+      }
+      .post li {
+        margin: 0.5em 0;
+      }
+
+      .post blockquote {
+        padding-left: 1.5em;
+        border-left: 0.5em solid {color:Borders};
+      }
+
+      .post .meta {
+        color: {color:Secondary Text};
+        font-variant: small-caps;
+        line-height: 120%;
+        margin: 0 1em 0 2em;
+        text-align: right;
+      }
+      .post .meta .wrap {
+        font-size: 0.9em;
+      }
+      .post .meta .date {
+        font-variant: small-caps;
+      }
+
+      .post hr {
+        display: none;
+      }
+
+      /* ----- shared post styles ----- */
+
+      .chat, .photo, .video {
+        background: transparent !important;
+        border-color: transparent !important;
+        padding-bottom: 0 !important;
+      }
+
+      /* ----- chat posts ----- */
+
+      .chat ul {
+        list-style: none;
+        margin: 1em -1em 0;
+        border: solid {color:Borders};
+        border-width: 1px 1px 1px 0.5em;
+      }
+      .chat li {
+        margin: 0;
+        padding: 1em 1.5em 1.25em;
+      }
+
+      .chat .odd {
+        background: {color:Post Background};
+      }
+      .chat .even {
+        background: {color:Block Background};
+      }
+
+      .chat .person, .chat .line {
+        display: block;
+      }
+      .chat .person {
+        font-size: 1.2em;
+      }
+      .chat .line {
+        padding-left: 1em;
+      }
+
+      /* ----- audio posts ----- */
+
+      .audio .embed {
+        float: left;
+      }
+
+      .audio .details {
+        color: {color:Secondary Text};
+        float: left;
+        font-size: 0.9em;
+        font-variant: small-caps;
+      }
+
+      /* ----- quote posts ----- */
+
+      .quote blockquote {
+        font-style: normal !important;
+        margin: 0;
+        padding: 0 !important;
+        border: none !important;
+      }
+      .quote blockquote p {
+        font-size: 1.6em;
+        line-height: 1.4em !important;
+        margin: 0.5em 0.625em 0.625em !important;
+      }
+      .quote blockquote em {
+        font-style: italic !important;
+      }
+
+      /* ----- pagination ----- */
+
+      .pagination {
+        color: {color:Secondary Text};
+        padding: 1px;
+      }
+
+      .pagination .page {
+        padding: 0.5em;
+        text-align: center;
+      }
+
+      .pagination .newer, .pagination .older {
+        display: inline;
+      }
+
+      .pagination .newer {
+        float: left;
+      }
+      .pagination .older {
+        float: right;
+      }
+
+      /* ----- tag page ----- */
+
+      h3#tag {
+        color: {color:Secondary Text};
+        font-size: 1.5em;
+        line-height: 1.5em;
+        margin: 0.25em 2em 1.5em;
+      }
+
+      /* ----- fonts ----- */
+
+      body {
+        font-family: 'DejaVu Sans', Helvetica,
+          Candara, 'Lucida Grande', sans-serif;
+      }
+
+      blockquote {
+        font-family: 'Lido STF', 'DejaVu Serif', Georgia,
+          'Palatino Linotype', serif;
+      }
+
+      pre, code {
+        font-family: 'DejaVu Sans Mono', 'Courier New', monospace;
+      }
+
+      /* ----- links ----- */
+
+      a {
+        color: {color:Link};
+        font-weight: bold;
+        text-decoration: none;
+      }
+      a:hover {
+        color: {color:Link Hover};
+        text-decoration: underline;
+      }
+
+      a:focus {
+        outline: none;
+      }
+
+      #header a {
+        background: {color:Logo};
+        color: {color:Background};
+        display: block;
+        font-variant: small-caps;
+        height: 0.95em;
+        letter-spacing: 0.125ex;
+        line-height: 1.25em;
+        overflow: hidden;
+        padding: 0 0.75em;
+      }
+      #header a:hover {
+        background: {color:Logo Hover};
+        color: {color:Background};
+        text-decoration: none;
+      }
+
+      .post strong a,
+      .post .link h2 a {
+        color: {color:Strong Link} !important;
+      }
+      .post strong a:hover,
+      .post .link h2 a:hover {
+        color: {color:Strong Link Hover} !important;
+      }
+
+      .post .meta a {
+        background: transparent;
+        color: {color:Secondary Text} !important;
+        padding: 0 0.35em;
+      }
+      .post .meta a:hover {
+        background: {color:Link Hover Background} !important;
+        color: {color:Link Hover} !important;
+        text-decoration: none !important;
+      }
+
+      #tag a {
+        color: {color:Secondary Text} !important;
+        padding: 0 0.125em;
+      }
+      #tag a:hover {
+        color: {color:Link Hover} !important;
+        text-decoration: none !important;
+      }
+
+      #navigation a,
+      .pagination a {
+        background: transparent;
+        display: block;
+        border: 1px solid transparent;
+      }
+      #navigation a:hover,
+      .pagination a:hover {
+        background: {color:Link Hover Background};
+        text-decoration: none !important;
+        border-color: {color:Link Hover Border};
+      }
+
+      #navigation a {
+        padding: 0.25em 0.5em 0.75em;
+        text-transform: lowercase;
+      }
+
+      .pagination a {
+        padding: 0.5em 1.5em 0.75em;
+      }
+
+      {CustomCSS}
+    </style>
+</head><body>
+
+  <h1 id="header"><a href="/">{Title}</a></h1>
+  
+  <div id="tumblelog">
+    <div id="posts">
+
+      {block:TagPage}
+      <h3 id="tag">{Tag} <a
+        href="{TagURL}" title="Browse '{Tag}' posts">&#8600;</a><a
+        href="{TagURLChrono}" title="Browse '{Tag}' posts in chronological order">&#8598;</a>
+      </h3>
+      {/block:TagPage}
+      
+      {block:Posts}
+      <div class="post {TagsAsClasses}">
+        
+        {block:Text}
+        <div class="body text">
+          {block:Title}
+          <h2><a href="{Permalink}">{Title}</a></h2>
+          {/block:Title}
+          
+          <div class="caption">{Body}</div>
+        </div>
+        {/block:Text}
+        
+        {block:Photo}
+        <div class="body photo">
+          <p class="image">{LinkOpenTag}<img
+          src="{PhotoURL-500}" alt="[image]"/>{LinkCloseTag}</p>
+          
+          {block:Caption}
+          <div class="caption">{Caption}</div>
+          {/block:Caption}
+        </div>
+        {/block:Photo}
+        
+        {block:Quote}
+        <div class="body quote {Length}-quote">
+          <blockquote><p>{Quote}</p></blockquote>
+          
+          {block:Source}
+          <p class="source">&mdash; {Source}</p>
+          {/block:Source}
+        </div>
+        {/block:Quote}
+        
+        {block:Link}
+        <div class="body link">
+          <h2><a href="{URL}">{Name}</a></h2>
+
+          {block:Description}
+          <div class="caption">{Description}</div>
+          {/block:Description}
+        </div>
+        {/block:Link}
+        
+        {block:Chat}
+        <div class="body chat">
+          {block:Title}
+          <h2><a href="{Permalink}">{Title}</a></h2>
+          {/block:Title}
+          
+          <ul>
+            {block:Lines}
+            <li class="{Alt} {UserNumber}">
+              {block:Label}<strong class="person">{Label}</strong>{/block:Label}
+
+              <span class="line">{Line}</span>
+            </li>
+            {/block:Lines}
+          </ul>
+        </div>
+        {/block:Chat}
+        
+        {block:Audio}
+        <div class="body audio">
+          <div class="player">
+            <p class="embed">{AudioPlayerBlack}</p>
+            <p class="details">
+              Plays: {PlayCount}
+              {block:ExternalAudio}
+                &bull; <a href="{ExternalAudioURL}">Download</a>
+              {/block:ExternalAudio}
+            </p>
+            <div class="clearing">&nbsp;</div>
+          </div>
+          
+          {block:Caption}
+          <div class="caption">{Caption}</div>
+          {/block:Caption}
+        </div>
+        {/block:Audio}
+        
+        {block:Video}
+        <div class="body video">
+          <p>{Video-500}</p>
+          
+          {block:Caption}
+          <div class="caption">{Caption}</div>
+          {/block:Caption}
+        </div>
+        {/block:Video}
+        
+        <p class="meta"><span class="wrap">
+          <span class="date"><a href="{Permalink}">{DayOfMonth} {Month} {Year}</a></span>
+
+          {block:RebloggedFrom}
+          &bull; <span class="reblog">
+            reblog: <a href="{ReblogRootURL}" title="{ReblogRootTitle}">{ReblogRootName}</a>
+          </span>
+          {/block:RebloggedFrom}
+          
+          {block:HasTags}
+          &bull; <span class="tags">
+            {block:Tags} <a href="{TagUrl}">{Tag}</a> {/block:Tags}
+          </span>
+          {/block:HasTags}
+        </span></p>
+      
+        <hr/>
+      </div>
+      {/block:Posts}
+      
+      <div class="pagination">
+      {block:Pagination}
+        {block:PreviousPage}<p class="newer">
+          <a href="{PreviousPage}">&laquo; Newer</a>
+        </p>{/block:PreviousPage}
+        
+        {block:NextPage}<p class="older">
+          <a href="{NextPage}">Older &raquo;</a>
+        </p>{/block:NextPage}
+        
+        <p class="page">{CurrentPage} &#8260; {TotalPages}</p>
+      {/block:Pagination}
+      
+      {block:PermalinkPagination}
+        {block:NextPost}<p class="newer">
+          <a href="{NextPost}">&laquo; Newer</a>
+        </p>{/block:NextPost}
+        
+        {block:PreviousPost}<p class="older">
+          <a href="{PreviousPost}">Older &raquo;</a>
+        </p>{/block:PreviousPost}
+      {/block:PermalinkPagination}
+      
+      {block:DayPagination}
+        {block:NextDayPage}<p class="newer">
+          <a href="{NextDayPage}">&laquo; {DayOfMonth} {ShortMonth}</a>
+        </p>{/block:NextDayPage}
+        
+        {block:PreviousDayPage}<p class="older">
+          <a href="{PreviousDayPage}">{DayOfMonth} {ShortMonth} &raquo;</a>
+        </p>{/block:PreviousDayPage}
+      {/block:DayPagination}
+
+      {block:DayPage}
+        <p class="page">{DayOfMonth} {Month} {Year}</p>
+      {/block:DayPage}
+        
+        <div class="clearing">&nbsp;</div>
+      </div><!-- /pagination -->
+      
+    </div><!-- /posts -->
+  </div><!-- /tumblelog -->
+    
+  <div id="sidebar-wrap">
+    <div id="sidebar">
+      <h2>Info</h2>
+
+      <p id="description">{Description}</p>
+      
+      <ul id="navigation">
+        <li><a href="/random">Random post</a></li>
+        <li><a href="/archive">Archive</a></li>
+        <li><a href="{RSS}">Subscribe</a></li>
+      </ul>
+      
+    </div>
+  </div><!-- /sidebar -->
+  
+  <div class="clearing">&nbsp;</div>
+  
+  <div id="footer">
+    <dl>
+      <!--
+        You can use this space for links.
+        Just make sure to leave in the credit notice:
+      -->
+      <dt>Credits</dt>
+        <dd>Designed by <a href="http://inky.tumblr.com/">Liam Cooke</a>
+        and powered by <a href="http://www.tumblr.com/">Tumblr</a>.</dd>
+
+      {block:GroupMembers}
+      <dt>Members</dt>
+        <dd>{block:GroupMember}
+          <a href="{GroupMemberURL}"><img
+          src="{GroupMemberPortraitURL-30}" alt="[{GroupMemberName}]"
+          title="{GroupMemberTitle} ({GroupMemberName})"/></a>
+        {/block:GroupMember}</dd>
+      {/block:GroupMembers}
+
+      {block:Following}
+      <dt>Following</dt>
+        <dd>{block:Followed}
+          <a href="{FollowedURL}"><img
+          src="{FollowedPortraitURL-30}" alt="[{FollowedName}]"
+          title="{FollowedTitle} ({FollowedName})"/></a>
+        {/block:Followed}</dd>
+      {/block:Following}
+      
+    </dl>
+    <div class="clearing">&nbsp;</div>
+  </div>
+</body></html><!-- vim: set expandtab ts=2 softtabstop=2 sw=2: -->
