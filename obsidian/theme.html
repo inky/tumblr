@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--
 
-  Obsidian [version 1.00]
+  Obsidian [version 1.02]
   Tumblr theme by Liam Cooke <http://inky.tumblr.com/>
   Free to use and alter, as long as credit is given.
 
@@ -43,7 +43,7 @@
       }
       
       fieldset, img, abbr, acronym {
-        border: none;
+        border: 0;
       }
       
       form, fieldset, input, textarea, button {
@@ -194,7 +194,6 @@
         float: left;
       }
 
-
       /* ----- sidebar ----- */
 
       #sidebar {
@@ -241,17 +240,24 @@
         border-top: 4px solid {color:Borders};
       }
 
-      #footer dt {
-        clear: left;
+      #footer ul {
+        list-style: none;
+        margin: 1em;
+      }
+
+      #footer ul li {
+        clear: both;
+      }
+
+      #footer ul li strong {
         display: inline;
         float: left;
-        margin: 0 -1px 1em 0;
+        margin: 0 0 1em;
         text-align: right;
         width: 20%;
       }
 
-      #footer dd {
-        clear: right;
+      #footer ul li span {
         float: left;
         margin: 0 0 1em;
         padding-left: 1.5em;
@@ -314,7 +320,7 @@
 
       .chat, .photo, .video {
         background: transparent !important;
-        border-color: transparent !important;
+        border-color: {color:Background} !important;
         padding-bottom: 0 !important;
       }
 
@@ -367,7 +373,7 @@
         font-style: normal !important;
         margin: 0;
         padding: 0 !important;
-        border: none !important;
+        border: 0 !important;
       }
       .quote blockquote p {
         font-size: 1.6em;
@@ -439,7 +445,7 @@
       }
 
       a:focus {
-        outline: none;
+        outline: 0;
       }
 
       #header a {
@@ -492,7 +498,7 @@
       .pagination a {
         background: transparent;
         display: block;
-        border: 1px solid transparent;
+        border: 1px solid {color:Background};
       }
       #navigation a:hover,
       .pagination a:hover {
@@ -698,34 +704,36 @@
   <div class="clearing">&nbsp;</div>
   
   <div id="footer">
-    <dl>
-      <!--
-        You can use this space for links.
-        Just make sure to leave in the credit notice:
-      -->
-      <dt>Credits</dt>
-        <dd>Designed by <a href="http://inky.tumblr.com/">Liam Cooke</a>
-        and powered by <a href="http://www.tumblr.com/">Tumblr</a>.</dd>
+    <ul>
+      <li>
+        <strong>Credits:</strong>
+        <span>Designed by <a href="http://inky.tumblr.com/">Liam Cooke</a>
+          and powered by <a href="http://www.tumblr.com/">Tumblr</a>.</span>
+      </li>
 
       {block:GroupMembers}
-      <dt>Members</dt>
-        <dd>{block:GroupMember}
+      <li>
+        <strong>Members:</strong>
+        <span>{block:GroupMember}
           <a href="{GroupMemberURL}"><img
           src="{GroupMemberPortraitURL-30}" alt="[{GroupMemberName}]"
           title="{GroupMemberTitle} ({GroupMemberName})"/></a>
-        {/block:GroupMember}</dd>
+        {/block:GroupMember}</span>
+      </li>
       {/block:GroupMembers}
 
       {block:Following}
-      <dt>Following</dt>
-        <dd>{block:Followed}
+      <li>
+        <strong>Following:</strong>
+        <span>{block:Followed}
           <a href="{FollowedURL}"><img
           src="{FollowedPortraitURL-30}" alt="[{FollowedName}]"
           title="{FollowedTitle} ({FollowedName})"/></a>
-        {/block:Followed}</dd>
+        {/block:Followed}</span>
+      </li>
       {/block:Following}
       
-    </dl>
+    </ul>
     <div class="clearing">&nbsp;</div>
   </div>
 </body></html><!-- vim: set expandtab ts=2 softtabstop=2 sw=2: -->
