@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--
+  ichi -
+  theme by Liam Cooke
+  http://inky.tumblr.com/
+-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <meta name="color:Page" content="#ffffff"/>
+  <meta name="color:Text" content="#222222"/>
+  <meta name="color:Minor Text" content="#777777"/>
+  <meta name="color:Borders" content="#aaaaaa"/>
+  <meta name="color:Link" content="#145091"/>
+  <meta name="color:Active Link" content="#2c3a49"/>
+  <meta name="color:Highlight" content="#eeeeee"/>
+
+  <title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
+
+  <link rel="shortcut icon" href="{Favicon}"/>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss"/>
+  <style type="text/css">
+body,div,h1,h2,h3,h4,h5,h6,p,blockquote,pre,code,dl,dt,dd,ul,ol,li,th,td,form,fieldset,legend,input,textarea{margin:0;padding:0;}
+html{font-size:100.01%;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+caption,cite,code,dfn,th,var{font-style:normal;font-weight:normal;}
+h1,h2,h3,h4,h5,h6{font-size:1em;font-weight:normal;}
+abbr,acronym{border:0;}
+
+body {font:1em/1.5 'Georgia',serif;}
+h1, h3 {font-family:'Helvetica Neue','Helvetica',sans-serif;}
+pre,code {font-family:'Inconsolata','Monaco','Consolas','DejaVu Sans Mono',monospace;}
+
+body {background:{color:Page}; color:{color:Text};
+      border-left:0.5em solid {color:Borders};}
+
+a:link, a:visited {color:{color:Link}; text-decoration:none;}
+a:hover, a:active {color:{color:Active Link};}
+
+#header {color:{color:Minor Text}; position:absolute; top:3em; left:2em;
+         width:11em;}
+#header h1 {font-weight:bold; font-size:1.2em; line-height:1.25;
+            text-transform:lowercase; margin:0.625em -0.5em 0.75em 0;
+            letter-spacing:-1px; word-spacing:1px;}
+#header h1 a:link, #header h1 a:visited {color:{color:Text}; display:block;}
+#header h1 a:hover, #header h1 a:active {color:{color:Active Link};}
+#description {font-size:0.8em; line-height:1.875; margin-bottom:1.875em;}
+#header form {margin-bottom:1.5em;}
+#header form input {width:90%;}
+#header ul {margin:0 -0.25em 1.5em;}
+#header li {list-style:none; text-transform:lowercase;}
+#header li a {background:{color:Page}; display:block; padding:0 0.25em;
+              text-decoration:none;}
+#header li a:hover {background:{color:Highlight};}
+
+#links p {text-transform:lowercase; margin:0;}
+#links ul {margin:0 0 1.5em 1.25em;}
+#links ul li {text-transform:none; font-size:0.8em; line-height:1.875;}
+#links abbr {font-size:1em;}
+
+#posts {margin:0 1.5em 0 15em; padding:4.5em 0 1.5em;}
+#posts .post {list-style:none; margin:-1px 0 0; padding-bottom:2.875em; max-width:42em;
+              clear:both; border-top:1px solid {color:Borders};}
+#posts .content {color:#222; padding-top:0.125em; margin-right:10.5em;}
+
+#footer {margin:0 1.5em 0 15em; max-width:42em;
+         border-top:1px solid {color:Borders};}
+#pagination p {font-size:1.25em; min-width:10em; line-height:3.6; margin:0; white-space:nowrap;}
+#pagination p.back {display:inline; text-align:right; float:right; margin-left:1.5em;}
+#pagination p.forward {display:inline; float:left; margin-right:1.5em;}
+#pagination a {font-style:italic;}
+#pagination .page {text-align:center; font:0.8em/5.625 'Palatino','Palatino Linotype',serif;
+                   text-transform:uppercase;}
+#colophon {clear:both; color:{color:Minor Text}; padding-bottom:1.5em;}
+#colophon p {margin:1.5em 0;}
+#footer a:hover, #footer a:active {text-decoration:underline;}
+
+p {margin-bottom:1.5em;}
+form .submit {height:0; overflow:hidden; display:block;}
+
+.meta {float:right; clear:right; width:9.25em;}
+.meta h2 {margin-bottom:1.5em; border-top:0.125em solid {color:Borders};}
+.meta h2 a {text-decoration:none; display:block; padding:0 0.25em;}
+.meta h2 a:hover {background:{color:Highlight};}
+.meta p {color:{color:Minor Text}; font-style:italic; margin:0 0 0 1em;
+         text-indent:-0.75em; text-transform:lowercase;}
+p.meta {color:{color:Minor Text}; font-style:italic; margin:0;
+        width:8.25em; text-indent:-0.75em; text-transform:lowercase;}
+.meta a {font-style:normal; white-space:nowrap;}
+.meta .notecount, .meta .plays {font-weight:bold; font-style:normal;}
+.reblog a, .tags a {display:block; margin-left:0.75em;}
+
+h3 {font-size:1.25em; line-height:1.2; padding:0.6em 0; font-weight:bold;}
+
+.content a {border-bottom:1px solid {color:Borders};}
+.content a:hover {border-bottom-width:2px;}
+.content .photo a {border:none !important;}
+.content ul, .content ol {margin:1.5em;}
+.content ul li {list-style:square;}
+
+blockquote {margin:0 1.5em 1.5em; font-style:italic;}
+blockquote i, blockquote em, blockquote [lang="ja"] {font-style:normal;}
+pre, code {font-size:1em; line-height:1.5;}
+pre {background:{color:Highlight}; margin:0 -0.75em 1.5em; padding:0.75em;
+     overflow-x:auto;}
+pre code {display:block;}
+pre i, code i {font-style:normal; color:{color:Minor Text};}
+
+ins {text-decoration:none; font-style:italic;}
+blockquote ins, em ins, ins em {font-style:normal;}
+
+abbr, acronym, .caps {font-size:0.9em; letter-spacing:0.1em; word-spacing:0.1em;}
+abbr, acronym {font-variant:small-caps;}
+.caps {text-transform:uppercase;}
+
+.clear {clear:both; visibility:hidden; height:0; overflow:hidden;}
+
+.text, .caption {margin-bottom:1.5em;}
+.post img, .post object, .post embed {max-width:100%;}
+
+.link-post h3 {padding:1.2em 0;}
+
+.photo-post .photo, .video-post .video {margin-bottom:1.5em;}
+
+.quote-post .quote {font-family:'Palatino','Palatino Linotype',serif;}
+.quote-post .source, .cite
+  {float:right; margin:0 3em 1.5em 4.5em; text-indent:-1.5em;}
+.quote-post .source a:first-child, .cite
+  {font-variant:small-caps; letter-spacing:0.1em;}
+.short-quote .quote, .medium-quote .quote
+  {font-size:1.2em; line-height:1.25; margin:1.25em;}
+.long-quote .quote {margin:1.5em;}
+
+.audio-post .audio {height:2.25em; padding-top:2.25em;}
+.audio-post .audio_player {width:207px; margin:-13px auto 0;}
+
+.chat-post ol {list-style:none; margin:1.5em 0;}
+.chat-post li {margin-left:1.5em; text-indent:-1.5em;}
+.chat-post .label {font-weight:bold; padding-right:0.125em;}
+.chat-post .speaker {font-style:italic;}
+.chat-post .speaker2 .label, .chat-post .speaker4 .label,
+  .chat-post .speaker6 .label, .chat-post .speaker8 .label
+    {color:{color:Minor Text};}
+.chat-post .speaker3 .label, .chat-post .speaker4 .label,
+  .chat-post .speaker7 .label, .chat-post .speaker8 .label
+    {font-variant:small-caps; letter-spacing:0.1em;}
+.chat-post .speaker5 .label, .chat-post .speaker6 .label,
+  .chat-post .speaker7 .label, .chat-post .speaker8 .label
+    {font-family:'Helvetica Neue','Helvetica',sans-serif;}
+
+.postnotes {clear:both; margin:3em 0 1.5em; border-top:1px solid {color:Highlight};}
+.notes {color:{color:Highlight}; padding-top:1.5em; margin-top:-1px;}
+.notes .action {color:{color:Minor Text};}
+.notes a {display:none;}
+.notes .action a, .notes blockquote a {display:inline; text-indent:0; margin:0; padding:0;}
+.notes a:link, .notes a:visited {color:{color:Text};}
+.notes li {margin-bottom:1.5em;}
+.notes .avatar, .notes .clear {display:none;}
+.notes blockquote {line-height:1.875; font-size:0.8em; margin:0 0 0 1.875em;}
+.notes blockquote a {border-width:0 !important;}
+
+.day .month {font-variant:small-caps;}
+{block:DayPage}.day {font-weight:bold;}{/block:DayPage}
+
+{CustomCSS}
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <h1><a href="/">{Title}</a></h1>
+  {block:Description}<p id="description">
+    {Description}
+  </p>{/block:Description}
+
+  <form action="/search" method="get">
+    <input type="search" placeholder="Search…" name="q" value="" size="15"/>&nbsp;
+    <span class="submit"><input type="submit" value="Search"/></span>
+  </form>
+
+  <ul>
+    <li><a href="/archive">Archive</a></li>
+    <li><a href="/random">Random post</a></li>
+    <li><a href="/rss">Subscribe</a></li>
+  </ul>
+
+  <!--
+  <div id="links">
+    <p>Links:</p>
+    <ul>
+      <li><a href="http://">Twitter</a></li>
+      <li><a href="http://">Flickr</a></li>
+      <li><a href="http://">Last.fm</a></li>
+    </ul>
+  </div>
+  -->
+</div>
+
+<ol id="posts">
+{block:Posts}
+  <li class="post" id="post{PostID}">
+    <div class="meta">
+      <h2>
+        <a title="Link to this post"
+          href="{Permalink}">{24Hour}:{Minutes}</a>
+        {block:NewDayDate}<a title="Link to everything posted this day"
+          href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"
+          class="day">{DayOfMonth}{DayOfMonthSuffix} <span
+            class="month">{ShortMonth}</span> {Year}</a>
+        {/block:NewDayDate}
+      </h2>
+
+      {block:NoteCount}<p class="meta">
+        notes:
+        <span class="notecount">{NoteCount}</span>
+      </p>{/block:NoteCount}
+
+      {block:RebloggedFrom}<p class="reblog">
+        reblogged from:
+        <a href="{ReblogParentUrl}">{ReblogParentName}</a>
+      </p>{/block:RebloggedFrom}
+
+      {block:HasTags}<p class="tags">
+        tags:
+        {block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}
+      </p>{/block:HasTags}
+    </div>
+
+    {block:Text}
+    <div class="content text-post">
+      {block:Title}<h3><span>{Title}</span></h3>{/block:Title}
+
+      <div class="text">{Body}</div>
+    </div>
+    {/block:Text}
+
+    {block:Photo}
+    {block:HighRes}<p class="meta">
+      image: <a href="{PhotoURL-HighRes}">download</a>
+    </p>{/block:HighRes}
+    <div class="content photo-post">
+      <div class="photo">
+        {LinkOpenTag}<img src="{PhotoURL-500}" alt="[photo]"/>{LinkCloseTag}
+      </div>
+
+      {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+    </div>
+    {/block:Photo}
+
+    {block:Quote}
+    <div class="content quote-post {Length}-quote">
+      <blockquote class="quote">{Quote}</blockquote>
+
+      {block:Source}<div class="source">&mdash;&#8194;{Source}</div>{/block:Source}
+    </div>
+    {/block:Quote}
+
+    {block:Link}
+    <div class="content link-post">
+      <h3 class="link"><a href="{URL}">{Name}</a></h3>
+
+      {block:Description}<div class="caption">{Description}</div>{/block:Description}
+    </div>
+    {/block:Link}
+
+    {block:Chat}
+    <div class="content chat-post">
+      {block:Title}<h3>{Title}</h3>{/block:Title}
+
+      <ol class="chat">
+        {block:Lines}<li class="{Alt} speaker{UserNumber}">
+          {block:Label}<span class="label">{Label}</span>{/block:Label}
+          <span class="line">{Line}</span>
+        </li>{/block:Lines}
+      </ol>
+    </div>
+    {/block:Chat}
+
+    {block:Video}
+    <div class="content video-post">
+      <div class="video">{Video-400}</div>
+
+      {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+    </div>
+    {/block:Video}
+
+    {block:Audio}
+    <p class="meta">plays: <span class="plays">{FormattedPlayCount}</span></p>
+    <div class="content audio-post">
+      <div class="audio">{AudioPlayerBlack}</div>
+
+      {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+    </div>
+    {/block:Audio}
+
+    {block:PostNotes}<div class="postnotes">
+      {PostNotes}
+    </div>{/block:PostNotes}
+
+    <div class="clear">&nbsp;</div>
+  </li>
+{/block:Posts}
+</ol>
+
+<div id="footer">
+  <div id="pagination">
+  {block:Pagination}
+    <p class="back">&nbsp;{block:NextPage}
+      <a href="{NextPage}">More</a> &rarr;
+    {/block:NextPage}</p>
+    <p class="forward">{block:PreviousPage}
+      &larr; <a href="{PreviousPage}">Back</a>
+    {/block:PreviousPage}&nbsp;</p>
+    <p class="page">
+      page {CurrentPage} of {TotalPages}
+    </p>
+  {/block:Pagination}
+
+  {block:PermalinkPagination}
+    {block:PreviousPost}<p class="back">
+      <a href="{PreviousPost}">Older Post</a> &rarr;
+    </p>{/block:PreviousPost}
+    {block:NextPost}<p class="forward">
+      &larr; <a href="{NextPost}">Newer Post</a>
+    {/block:NextPost}</p>
+  {/block:PermalinkPagination}
+
+  {block:DayPagination}
+    {block:PreviousDayPage}<p class="back">
+      <a href="{PreviousDayPage}">Previous Day</a> &rarr;
+    {/block:PreviousDayPage}</p>
+    {block:NextDayPage}<p class="forward">
+      &larr; <a href="{NextDayPage}">Next Day</a>
+    </p>{/block:NextDayPage}
+  {/block:DayPagination}
+  </div>
+
+  <div id="colophon">
+    <p>Powered by <a href="http://www.tumblr.com/">Tumblr</a>.
+    Theme by <a href="http://inky.tumblr.com/">Liam Cooke</a>.</p>
+  </div>
+</div>
+</body>
+</html>
