@@ -64,7 +64,7 @@ a:hover, a:active {color:{color:Active Link};}
 #posts {margin:0 1.5em 0 15em; padding:4.5em 0 1.5em;}
 #posts .post {list-style:none; margin:-1px 0 0; padding-bottom:2.875em; max-width:42em;
               clear:both; border-top:1px solid {color:Borders};}
-#posts .content {color:#222; padding-top:0.125em; margin-right:10.5em;}
+#posts .content {color:{color:Text}; padding-top:0.125em; margin-right:10.5em;}
 
 #footer {margin:0 1.5em 0 15em; max-width:42em;
          border-top:1px solid {color:Borders};}
@@ -296,11 +296,13 @@ abbr, acronym {font-variant:small-caps;}
     </div>
     {/block:Audio}
 
+    <div class="clear">&nbsp;</div>
+
     {block:PostNotes}<div class="postnotes">
       {PostNotes}
+      <div class="clear">&nbsp;</div>
     </div>{/block:PostNotes}
 
-    <div class="clear">&nbsp;</div>
   </li>
 {/block:Posts}
 </ol>
