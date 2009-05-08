@@ -30,15 +30,16 @@ caption,cite,code,dfn,th,var{font-style:normal;font-weight:normal;}
 h1,h2,h3,h4,h5,h6{font-size:1em;font-weight:normal;}
 abbr,acronym{border:0;}
 
-body {font:1em/1.5 'Georgia',serif;}
+body {background:{color:Page}; color:{color:Text}; font:1em/1.5 'Georgia',serif;}
+
 h1, h3 {font-family:'Helvetica Neue','Helvetica',sans-serif;}
 pre,code {font-family:'Inconsolata','Monaco','Consolas','DejaVu Sans Mono',monospace;}
 
-body {background:{color:Page}; color:{color:Text};
-      border-left:0.5em solid {color:Borders};}
-
 a:link, a:visited {color:{color:Link}; text-decoration:none;}
 a:hover, a:active {color:{color:Active Link};}
+
+#border {background:{color:Borders}; position:fixed; top:0; bottom:0; width:0.5em;
+         border-right:0.125em solid {color:Highlight};}
 
 #header {color:{color:Minor Text}; position:absolute; top:3em; left:2em;
          width:11em;}
@@ -167,8 +168,15 @@ abbr, acronym {font-variant:small-caps;}
 
 {CustomCSS}
   </style>
+  <!--[if lte IE 6]>
+  <style type="text/css">
+    #border {display:none;}
+    body {border-left:0.5em solid {color:Borders};}
+  </style>
+  <![endif]-->
 </head>
 <body>
+<div id="border"></div>
 
 <div id="header">
   <h1><a href="/">{Title}</a></h1>
@@ -345,5 +353,6 @@ abbr, acronym {font-variant:small-caps;}
     Theme by <a href="http://inky.tumblr.com/">Liam Cooke</a>.</p>
   </div>
 </div>
+
 </body>
 </html>
