@@ -18,9 +18,10 @@
   <meta name="color:Highlight" content="#eeeeee"/>
 
   <title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
+  {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
 
   <link rel="shortcut icon" href="{Favicon}"/>
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss"/>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
   <style type="text/css">
 body,div,h1,h2,h3,h4,h5,h6,p,blockquote,pre,code,dl,dt,dd,ul,ol,li,th,td,form,fieldset,legend,input,textarea{margin:0;padding:0;}
 html{font-size:100.01%;}
@@ -251,7 +252,7 @@ abbr, acronym {font-variant:small-caps;}
     </p>{/block:HighRes}
     <div class="content photo-post">
       <div class="photo">
-        {LinkOpenTag}<img src="{PhotoURL-500}" alt="[photo]"/>{LinkCloseTag}
+        {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
       </div>
 
       {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
