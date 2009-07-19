@@ -3,7 +3,7 @@ Tumblr themes
 
 * [◯](http://github.com/inky/tumblr/blob/themes/◯.html)
 
-    * [Thumbnail preview](http://github.com/inky/tumblr/blob/themes/◯-tn.png)
+    * [Thumbnail preview](http://github.com/inky/tumblr/raw/themes/◯-tn.png)
     * [Live theme](http://◯.tumblr.com/)
 
 * [ichi](http://github.com/inky/tumblr/blob/themes/ichi.html)
