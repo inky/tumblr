@@ -1,5 +1,15 @@
 Tumblr themes
 =============
 
-1. [Obsidian](http://github.com/inky/tumblr/raw/themes/obsidian.html)
-2. [ichi](http://github.com/inky/tumblr/raw/themes/ichi.html)
+[◯](http://github.com/inky/tumblr/blob/themes/◯.html)
+-----------------------------------------------------
+![◯](http://github.com/inky/tumblr/raw/themes/◯-tn.png)
+
+
+## [ichi](http://github.com/inky/tumblr/blob/themes/ichi.html)
+--------------------------------------------------------------
+![ichi](http://github.com/inky/tumblr/raw/themes/ichi-tn.png)
+
+
+## [Obsidian](http://github.com/inky/tumblr/blob/themes/obsidian.html)
+----------------------------------------------------------------------
