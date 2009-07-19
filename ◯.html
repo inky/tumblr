@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--
+
+  ◯
+  Theme by inky.
+  Inspired by 'Minimalist', one of the default Tumblr themes.
+
+-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{Title}{block:PostSummary} : {PostSummary}{/block:PostSummary}</title>
+
+    <meta name="color:Background" content="#fff"/>
+    <meta name="color:Text" content="#444"/>
+    <meta name="color:Secondary" content="#888"/>
+    <meta name="color:Minor" content="#bbb"/>
+    <meta name="color:Link" content="#000"/>
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+    <link rel="icon" href="{Favicon}"/>
+    <meta name="description" content="{MetaDescription}"/>
+    <style type="text/css">
+      html, body, div, span, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, b, cite, code,
+      del, dfn, em, i, img, ins, kbd, q, samp,
+      strike, strong, sub, sup, tt, var,
+      dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td
+          {margin: 0; padding: 0; border: 0; outline: 0; font-size: inherit;
+           line-height: inherit; vertical-align: baseline; background: transparent;}
+      html {font-size:100.01%;}
+      caption, cite, code, dfn, th, var {font-style: normal; font-weight: normal;}
+      h1, h2, h3, h4, h5, h6 {font-weight: normal;}
+      blockquote, q {quotes: none;}
+      blockquote:before, blockquote:after, q:before, q:after {content: '';}
+      :focus {outline: 0;}
+      ins {text-decoration: underline;}
+      del {text-decoration: line-through;}
+      a {text-decoration: none;}
+
+      body {font: 12pt/18pt 'Helvetica Neue','Helvetica',sans-serif;
+            background-color: {color:Background}; color: {color:Text};}
+
+      #body {background-color: {color:Background}; padding: 1.5em 0.25em;}
+      #content {position: relative; width: 500px; margin: 0 auto;}
+
+      h1 {font-size: 3em; line-height:1; padding:0.5em 0 1em; text-align:center;}
+      h1 a {color: {color:Text}; padding: 0 0.25em; font-weight: bold;}
+
+      h2, h3 {line-height: 18pt;}
+      p, pre, ul, ol, blockquote, form
+        {margin: 9pt 0 18pt; line-height: 18pt;}
+      blockquote {padding-left: 1em; border-left:0.25em solid {color:Minor};}
+
+      #description {position: absolute; left: 530px; color: {color:Minor};
+                    font-size: 11pt; width: 10em;}
+      #description p, #description form {margin-top: 0;}
+      #description a {color: {color:Secondary}; font-weight:bold;}
+      #description a:hover {color: {color:Text};}
+      #description form .input
+        {background: {color:Background}; color: {color:Secondary}; font-size: 10pt;
+         text-transform: lowercase; width: 90%; border: solid {color:Minor};
+         border-width: 0 1px 1px 0;}
+      #description .submit {height: 0; overflow: hidden; display: block;}
+      #description .meta {word-spacing: 0.25em; font-size: 10pt;
+                          text-transform: uppercase;}
+      #description .meta a {color: {color:Minor}; font-weight: normal;}
+
+      #posts {margin: 0;}
+      .post {position: relative; list-style: none; margin-bottom: 4.5em;}
+      .post ul li {list-style: square;}
+
+      .post-body h3 {font-size: 1.25em; font-weight: bold; position: relative;}
+      .post-body a {font-weight: bold; color: {color:Link};
+                    border-bottom: 1px solid transparent;}
+      .post-body a:hover {border-bottom-color: {color:Minor}; color: {color:Text};}
+      .post-body .image a {border-width: 0;}
+
+      .permalink {font-size: 11pt; position: absolute; right: 530px;
+                  text-align: right;}
+      .permalink a {color: {color:Minor}; white-space: nowrap; padding:0 0 4.5pt 9pt;}
+      .permalink a:hover {color: {color:Text};}
+
+      .caption, .cite {font-size: 11pt; margin-top: 9pt;}
+      .caption p {margin-top: 18pt;}
+
+      .text-post, .link-post {position: relative; top: -2pt;}
+      .text-post h3 {margin-bottom: 9pt;}
+      .link-post h3 {display: inline; padding-right:9pt;}
+
+      .quote-post {position: relative; top: -4.5pt;}
+      .quote-post blockquote.quote
+        {font-size: 18pt; line-height: 24pt; text-indent: -6pt;
+         margin: 0; padding: 0; border-width: 0;}
+      .quote-post .quote:before {content: '“';}
+      .quote-post .quote:after {content: '”';}
+      .quote-post .cite {color: {color:Secondary}; margin-left: 1.5em; text-indent: -1.5em;}
+
+      .chat-post li {list-style: none;}
+      .chat-post b {font-weight: bold; padding-right: 4.5pt;}
+
+      #footer {text-align: center; word-spacing: 0.75em; margin-top:4.5em;}
+      #footer a {color: {color:Secondary}; font-weight:bold; padding: 0.25em 0.5em;}
+      #footer a:hover {color:{color:Text};}
+
+      {CustomCSS}
+    </style>
+  </head>
+  <body>
+    <div id="body">
+      <div id="content">
+
+<h1><a href="/">{Title}</a></h1>
+
+<div id="description">
+  <form action="/search" method="get">
+    <input class="input" type="text" name="q" value="{SearchQuery}"/>
+    <span class="submit"><input type="submit" value="Search"/></span>
+  </form>
+
+  <p>{Description}</p>
+
+  <p class="meta">
+    <a href="/archive">Archive</a>
+    <span class="dim">/</span>
+    <a href="{RSS}">RSS</a>
+  </p>
+</div>
+
+<ul id="posts">
+  {block:Posts}
+  <li class="post">
+
+    <h2 class="permalink">
+      {block:NewDayDate}
+      <a href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a>
+      {/block:NewDayDate}
+
+      {block:SameDayDate}
+      <a href="{Permalink}">&rarr;</a>
+      {/block:SameDayDate}
+    </h2>
+
+    {block:Regular}
+    <div class="post-body text-post">
+      {block:Title}
+      <h3>{Title}</h3>
+      {/block:Title}
+
+      {Body}
+    </div>
+    {/block:Regular}
+
+    {block:Link}
+    <div class="post-body link-post">
+      <h3><a href="{URL}">{Name}</a></h3>
+
+      {block:Description}
+      {Description}
+      {/block:Description}
+    </div>
+    {/block:Link}
+
+    {block:Photo}
+    <div class="post-body image-post">
+      <div class="image">
+        {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+      </div>
+
+      {block:Caption}
+      <div class="caption">{Caption}</div>
+      {/block:Caption}
+    </div>
+    {/block:Photo}
+
+    {block:Video}
+    <div class="post-body video-post">
+      {Video-500}
+
+      {block:Caption}
+      <div class="caption">{Caption}</div>
+      {/block:Caption}
+    </div>
+    {/block:Video}
+
+    {block:Audio}
+    <div class="post-body audio-post">
+      <div class="audio">{AudioPlayerBlack}</div>
+
+      {block:Caption}
+      <div class="caption">{Caption}</div>
+      {/block:Caption}
+    </div>
+    {/block:Audio}
+
+    {block:Quote}
+    <div class="post-body quote-post">
+      <blockquote class="quote">{Quote}</blockquote>
+
+      {block:Source}
+      <p class="cite">&mdash;&#8194;{Source}</p>
+      {/block:Source}
+    </div>
+    {/block:Quote}
+
+    {block:Conversation}
+    <div class="post-body chat-post">
+      {block:Title}
+      <h3>{Title}</h3>
+      {/block:Title}
+
+      <ol>
+        {block:Lines}
+        <li>
+          {block:Label}<b class="label">{Label}</b>{/block:Label}
+          {Line}
+        </li>
+        {/block:Lines}
+      </ol>
+    </div>
+    {/block:Conversation}
+
+  </li>
+  {/block:Posts}
+</ul>
+
+<div id="footer">
+  {block:PreviousPage}
+  <a href="{PreviousPage}" title="Newer posts">&larr;</a>
+  {/block:PreviousPage}
+  {block:NextPage}
+  <a href="{NextPage}" title="Older posts">&rarr;</a>
+  {/block:NextPage}
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>
