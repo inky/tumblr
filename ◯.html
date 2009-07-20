@@ -77,7 +77,7 @@
       .post-body h3 {font-size: 1.25em; font-weight: bold; position: relative;}
       .post-body a {font-weight: bold; color: {color:Link};
                     border-bottom: 1px solid transparent;}
-      .post-body a:hover {border-bottom-color: {color:Minor}; color: {color:Text};}
+      .post-body a:hover {color: {color:Text}; border-bottom-color: {color:Minor};}
       .post-body .image a {border-width: 0;}
 
       .permalink {font-size: 11pt; position: absolute; right: 530px;
@@ -88,11 +88,15 @@
       .caption, .cite {font-size: 11pt; margin-top: 9pt;}
       .caption p {margin-top: 18pt;}
 
-      .text-post, .link-post {position: relative; top: -2pt;}
+      .text-post {position: relative; top: -2pt;}
       .text-post h3 {margin-bottom: 9pt;}
+
+      .link-post {position: relative; top: -2pt;}
       .link-post h3 {display: inline; padding-right:9pt;}
-      .link-post .text a {color: {color:Text};}
-      .link-post .text a:hover {color: {color:Secondary};}
+      .link-post a {color: {color:Text};}
+      .link-post a:hover {color: {color:Secondary};}
+      .link-post a.link {color: {color:Link};}
+      .link-post a.link:hover {color: {color:Text};}
 
       .quote-post {position: relative; top: -4.5pt;}
       .quote-post blockquote.quote
@@ -159,12 +163,10 @@
 
     {block:Link}
     <div class="post-body link-post">
-      <h3><a href="{URL}">{Name}</a></h3>
+      <h3><a class="link" href="{URL}">{Name}</a></h3>
 
       {block:Description}
-      <div class="text">
-        {Description}
-      </div>
+      {Description}
       {/block:Description}
     </div>
     {/block:Link}
