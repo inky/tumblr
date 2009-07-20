@@ -91,6 +91,8 @@
       .text-post, .link-post {position: relative; top: -2pt;}
       .text-post h3 {margin-bottom: 9pt;}
       .link-post h3 {display: inline; padding-right:9pt;}
+      .link-post .text a {color: {color:Text};}
+      .link-post .text a:hover {color: {color:Secondary};}
 
       .quote-post {position: relative; top: -4.5pt;}
       .quote-post blockquote.quote
@@ -160,7 +162,9 @@
       <h3><a href="{URL}">{Name}</a></h3>
 
       {block:Description}
-      {Description}
+      <div class="text">
+        {Description}
+      </div>
       {/block:Description}
     </div>
     {/block:Link}
