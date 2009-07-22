@@ -1,4 +1,5 @@
 Tumblr stuff
 ============
 
-* [Themes](http://github.com/inky/tumblr/tree/themes)
+For themes, check out the
+[themes](http://github.com/inky/tumblr/tree/themes) branch.
