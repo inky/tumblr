@@ -18,6 +18,9 @@
     <meta name="color:Minor" content="#bbb"/>
     <meta name="color:Link" content="#000"/>
 
+    <meta name="if:Show post notes" content="1"/>
+    <meta name="if:Link to theme" content="0"/>
+
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
     <link rel="icon" href="{Favicon}"/>
     <meta name="description" content="{MetaDescription}"/>
@@ -111,6 +114,12 @@
       .chat-post li {list-style: none; margin-left: 2em; text-indent: -2em;}
       .chat-post b {font-weight: bold; padding-right: 4.5pt;}
 
+      .notes {color: {color:Minor}; margin-top: 54pt;}
+      .notes li {list-style: none; margin-bottom: 18pt;}
+      .notes img, .notes .clear {display: none;}
+      .notes a {color: {color:Secondary};}
+      .notes a:hover {color: {color:Text};}
+
       #footer {text-align: center; word-spacing: 0.75em; margin-top:4.5em;}
       #footer a {color: {color:Secondary}; font-weight:bold; padding: 0.25em 0.5em;}
       #footer a:hover {color:{color:Text};}
@@ -136,6 +145,10 @@
     <a href="/archive">Archive</a>
     <span class="dim">/</span>
     <a href="{RSS}">RSS</a>
+    {block:IfLinkToTheme}
+    <br/>
+    <a href="http://www.tumblr.com/theme/1386">Use This Theme</a>
+    {/block:IfLinkToTheme}
   </p>
 </div>
 
@@ -231,6 +244,14 @@
       </ol>
     </div>
     {/block:Conversation}
+
+    {block:IfShowPostNotes}
+      <!-- post notes enabled -->
+      {block:PostNotes}
+        <!-- post has notes -->
+        {PostNotes}
+      {/block:PostNotes}
+    {/block:IfShowPostNotes}
 
   </li>
   {/block:Posts}
