@@ -22,6 +22,8 @@
   <meta name="font:Quote" content="Palatino, 'Palatino Linotype', serif"/>
   <meta name="font:Capitals" content="Palatino, 'Palatino Linotype', serif"/>
 
+  <meta name="if:Download link for large images" content="1"/>
+
   <title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
   {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
 
@@ -252,9 +254,11 @@ abbr, acronym {font-variant:small-caps;}
     {/block:Text}
 
     {block:Photo}
-    {block:HighRes}<p class="meta">
+    {block:HighRes}{block:IfDownloadLinkForLargeImages}
+    <p class="meta">
       image: <a href="{PhotoURL-HighRes}">download</a>
-    </p>{/block:HighRes}
+    </p>
+    {/block:IfDownloadLinkForLargeImages}{/block:HighRes}
     <div class="content photo-post">
       <div class="photo">
         {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
