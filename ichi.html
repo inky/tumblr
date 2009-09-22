@@ -23,7 +23,8 @@
   <meta name="font:Capitals" content="Palatino, 'Palatino Linotype', serif"/>
 
   <meta name="if:Show people I follow" content="0"/>
-  <meta name="if:Download link for large images" content="1"/>
+  <meta name="if:Link to submit a post" content="0"/>
+  <meta name="if:Link for large images" content="1"/>
 
   <title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
   {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
@@ -207,6 +208,9 @@ abbr, acronym {font-variant:small-caps;}
     <li><a href="/archive">Archive</a></li>
     <li><a href="/random">Random post</a></li>
     <li><a href="/rss">Subscribe</a></li>
+    {block:IfLinkToSubmitAPost}
+      <li><a href="/submit">Submit a post</a></li>
+    {/block:IfLinkToSubmitAPost}
   </ul>
 
   <!--
@@ -260,11 +264,11 @@ abbr, acronym {font-variant:small-caps;}
     {/block:Text}
 
     {block:Photo}
-    {block:HighRes}{block:IfDownloadLinkForLargeImages}
+    {block:HighRes}{block:IfLinkForLargeImages}
     <p class="meta">
       image: <a href="{PhotoURL-HighRes}">download</a>
     </p>
-    {/block:IfDownloadLinkForLargeImages}{/block:HighRes}
+    {/block:IfLinkForLargeImages}{/block:HighRes}
     <div class="content photo-post">
       <div class="photo">
         {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
