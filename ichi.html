@@ -17,6 +17,11 @@
   <meta name="color:Active Link" content="#2c3a49"/>
   <meta name="color:Highlight" content="#eeeeee"/>
 
+  <meta name="font:Body" content="Georgia"/>
+  <meta name="font:Heading" content="Helvetica Neue"/>
+  <meta name="font:Quote" content="Palatino, 'Palatino Linotype', serif"/>
+  <meta name="font:Capitals" content="Palatino, 'Palatino Linotype', serif"/>
+
   <title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
   {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
 
@@ -31,9 +36,9 @@ caption,cite,code,dfn,th,var{font-style:normal;font-weight:normal;}
 h1,h2,h3,h4,h5,h6{font-size:1em;font-weight:normal;}
 abbr,acronym{border:0;}
 
-body {background:{color:Page}; color:{color:Text}; font:1em/1.5 'Georgia',serif;}
+body {background:{color:Page}; color:{color:Text}; font:1em/1.5 {font:Body};}
 
-h1, h3 {font-family:'Helvetica Neue','Helvetica',sans-serif;}
+h1, h3 {font-family:{font:Heading};}
 pre,code {font-family:'Inconsolata','Monaco','Consolas','DejaVu Sans Mono',monospace;}
 
 a:link, a:visited {color:{color:Link}; text-decoration:none;}
@@ -74,7 +79,7 @@ a:hover, a:active {color:{color:Active Link};}
 #pagination p.back {display:inline; text-align:right; float:right; margin-left:1.5em;}
 #pagination p.forward {display:inline; float:left; margin-right:1.5em;}
 #pagination a {font-style:italic;}
-#pagination .page {text-align:center; font:0.8em/5.625 'Palatino','Palatino Linotype',serif;
+#pagination .page {text-align:center; font:0.8em/5.625 {font:Capitals};
                    text-transform:uppercase;}
 #colophon {clear:both; color:{color:Minor Text}; padding-bottom:1.5em;}
 #colophon p {margin:1.5em 0;}
@@ -127,7 +132,7 @@ abbr, acronym {font-variant:small-caps;}
 
 .photo-post .photo, .video-post .video {margin-bottom:1.5em;}
 
-.quote-post .quote {font-family:'Palatino','Palatino Linotype',serif;}
+.quote-post .quote {font-family:{font:Quote};}
 .quote-post .source, .cite
   {float:right; margin:0 3em 1.5em 4.5em; text-indent:-1.5em;}
 .quote-post .source a:first-child, .cite
@@ -151,7 +156,7 @@ abbr, acronym {font-variant:small-caps;}
     {font-variant:small-caps; letter-spacing:0.1em;}
 .chat-post .speaker5 .label, .chat-post .speaker6 .label,
   .chat-post .speaker7 .label, .chat-post .speaker8 .label
-    {font-family:'Helvetica Neue','Helvetica',sans-serif;}
+    {font-family:{font:Heading};}
 
 .postnotes {clear:both; margin:3em 0 1.5em; border-top:1px solid {color:Highlight};}
 .notes {color:{color:Highlight}; padding-top:1.5em; margin-top:-1px;}
