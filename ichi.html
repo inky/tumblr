@@ -87,11 +87,10 @@ a:hover, a:active {color:{color:Active Link};}
 #pagination .page {text-align:center; font:0.8em/5.625 {font:Capitals};
                    text-transform:uppercase;}
 .avatars {clear:both; color:{color:Minor Text};}
-.avatars h2 {margin:1.5em 0 0; float:left; width:108px; line-height:36px;}
-.avatars p {margin:1.5em 0; float:left; line-height:36px;}
-.avatars a {margin-right:6px;}
-#colophon {clear:both; color:{color:Minor Text}; padding-bottom:1.5em;}
-#colophon p {margin:1.5em 0;}
+.avatars span {float:left; display:inline; width:108px; line-height:36px;}
+.avatars a {float:left; display:inline; padding:0 6px 6px 0;}
+.avatars img {vertical-align:middle;}
+#colophon {clear:both; color:{color:Minor Text}; margin:0; padding:1.5em 0;}
 #footer a:hover, #footer a:active {text-decoration:underline;}
 
 p {margin-bottom:1.5em;}
@@ -370,32 +369,32 @@ abbr, acronym {font-variant:small-caps;}
 
   {block:IfShowPeopleIFollow}
     {block:GroupMembers}
-      <div id="members" class="avatars">
-        <h2>Members:</h2>
-        <p>{block:GroupMember}
-          <span><a href="{GroupMemberURL}"><img
+      <p id="members" class="avatars">
+        <span>Members:</span>
+        {block:GroupMember}
+          <a href="{GroupMemberURL}"><img
             src="{GroupMemberPortraitURL-30}" alt="[{GroupMemberName}]"
-            title="{GroupMemberTitle} ({GroupMemberName})"/></a></span>
-        {/block:GroupMember}</p>
-      </div>
+            title="{GroupMemberTitle} ({GroupMemberName})"/></a>
+        {/block:GroupMember}
+      </p>
     {/block:GroupMembers}
 
     {block:Following}
-      <div id="following" class="avatars">
-        <h2>Following:</h2>
-        <p>{block:Followed}
-          <span><a href="{FollowedURL}"><img
+      <p id="following" class="avatars">
+        <span>Following:</span>
+        {block:Followed}
+          <a href="{FollowedURL}"><img
             src="{FollowedPortraitURL-30}" alt="[{FollowedName}]"
-            title="{FollowedTitle} ({FollowedName})"/></a></span>
-        {/block:Followed}</p>
-      </div>
+            title="{FollowedTitle} ({FollowedName})"/></a>
+        {/block:Followed}
+      </p>
     {/block:Following}
   {/block:IfShowPeopleIFollow}
 
-  <div id="colophon">
-    <p>Powered by <a href="http://www.tumblr.com/">Tumblr</a>.
-    Theme by <a href="http://inky.tumblr.com/">Liam Cooke</a>.</p>
-  </div>
+  <p id="colophon">
+    Powered by <a href="http://www.tumblr.com/">Tumblr</a>.
+    Theme by <a href="http://inky.tumblr.com/">Liam Cooke</a>.
+  </p>
 </div>
 
 </body>
