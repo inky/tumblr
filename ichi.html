@@ -26,6 +26,8 @@
   <meta name="if:Link to submit a post" content="0"/>
   <meta name="if:Link for large images" content="1"/>
 
+  <meta name="text:About page URL" content=""/>
+
   <title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
   {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
 
@@ -77,15 +79,15 @@ a:hover, a:active {color:{color:Active Link};}
               clear:both; border-top:1px solid {color:Borders};}
 #posts .content {color:{color:Text}; padding-top:0.125em; margin-right:10.5em;}
 
-#footer {margin:0 1.5em 0 15em; max-width:42em;
+#footer {margin:0 1.5em 0 15em; max-width:42em; padding-top:1.5em;
          border-top:1px solid {color:Borders};}
-#pagination p {font-size:1.25em; min-width:10em; line-height:1.2; margin:1.2em 0;
+#pagination p {font-size:1.25em; min-width:10em; line-height:1.2; margin:0 0 2.4em;
                white-space:nowrap;}
 #pagination p.back {display:inline; text-align:right; float:right; margin-left:1.5em;}
 #pagination p.forward {display:inline; float:left; margin-right:1.5em;}
 #pagination a {font-style:italic;}
-#pagination .page {text-align:center; font:0.8em/5.625 {font:Capitals};
-                   text-transform:uppercase;}
+#pagination .page {text-align:center; font:0.8em/1.875 {font:Capitals};
+                   margin-bottom:1.875em; text-transform:uppercase;}
 .avatars {clear:both; color:{color:Minor Text};}
 .avatars span {float:left; display:inline; width:108px; line-height:36px;}
 .avatars a {float:left; display:inline; padding:0 6px 6px 0;}
@@ -204,6 +206,9 @@ abbr, acronym {font-variant:small-caps;}
   </form>
 
   <ul>
+    {block:IfAboutPageURL}
+      <li><a href="{text:About page URL}">About</a></li>
+    {/block:IfAboutPageURL}
     <li><a href="/archive">Archive</a></li>
     <li><a href="/random">Random post</a></li>
     <li><a href="/rss">Subscribe</a></li>
