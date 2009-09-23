@@ -18,9 +18,10 @@
     <meta name="color:Minor" content="#bbb"/>
     <meta name="color:Link" content="#000"/>
 
-    <meta name="font:Body" content="Helvetica Neue"/>
+    <meta name="font:Body" content="'Helvetica Neue', Arial, Helvetica, sans-serif"/>
 
     <meta name="if:Show post notes" content="1"/>
+    <meta name="if:Semitransparent audio player" content="1"/>
     <meta name="if:Link to theme" content="0"/>
 
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
@@ -61,6 +62,7 @@
         {margin: 9pt 0 18pt; line-height: 18pt;}
       blockquote {padding-left: 1em; margin-left: 2pt;
                   border-left: 0.25em solid {color:Minor};}
+      pre {overflow-x: auto; font-size: 11pt;}
 
       #description {position: absolute; left: 530px; color: {color:Minor};
                     font-size: 11pt; width: 10em;}
@@ -115,6 +117,10 @@
 
       .chat-post li {list-style: none; margin-left: 2em; text-indent: -2em;}
       .chat-post b {font-weight: bold; padding-right: 4.5pt;}
+
+      {block:IfSemitransparentAudioPlayer}
+      .audio-post .audio {opacity: 0.75;}
+      {/block:IfSemitransparentAudioPlayer}
 
       .notes {color: {color:Minor}; margin-top: 54pt;}
       .notes li {list-style: none; margin-bottom: 18pt;}
