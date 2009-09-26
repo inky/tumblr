@@ -64,6 +64,7 @@
       blockquote {padding-left: 1em; margin-left: 2pt;
                   border-left: 0.25em solid {color:Minor};}
       pre {overflow-x: auto; font-size: 11pt;}
+      ul ul, ul ol, ol ol, ol ul, blockquote ul, blockquote ol {margin-left: 1.5em;}
 
       #description {position: absolute; left: 530px; color: {color:Minor};
                     font-size: 11pt; width: 10em;}
@@ -92,7 +93,7 @@
 
       .permalink {font-size: 11pt; position: absolute; right: 530px;
                   text-align: right;}
-      .permalink a {color: {color:Minor}; white-space: nowrap; padding:0 0 4.5pt 9pt;}
+      .permalink a {color: {color:Minor}; white-space: nowrap; padding: 0 0 4.5pt 9pt;}
       .permalink a:hover {color: {color:Text};}
 
       .caption, .cite {font-size: 11pt; margin-top: 9pt;}
@@ -167,11 +168,13 @@
 
     <h2 class="permalink">
       {block:NewDayDate}
-      <a href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a>
+      <a title="{NoteCountWithLabel}"
+        href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a>
       {/block:NewDayDate}
 
       {block:SameDayDate}
-      <a href="{Permalink}">&rarr;</a>
+      <a title="{NoteCountWithLabel}"
+        href="{Permalink}">&rarr;</a>
       {/block:SameDayDate}
     </h2>
 
