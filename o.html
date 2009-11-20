@@ -21,7 +21,9 @@
     <meta name="font:Body" content="'Helvetica Neue', Arial, Helvetica, sans-serif"/>
 
     <meta name="if:Show post notes" content="1"/>
+    <meta name="if:Show audio artwork" content="1"/>
     <meta name="if:Semitransparent audio player" content="1"/>
+    <meta name="if:Link to liked posts" content="0"/>
     <meta name="if:Link to theme" content="0"/>
 
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
@@ -49,8 +51,7 @@
       a {text-decoration: none;}
 
       html {background-color: {color:Background};}
-      body {font: 12pt/18pt {font:Body};
-            background-color: {color:Background}; color: {color:Text};}
+      body {font: 12pt/18pt {font:Body}; background-color: {color:Background}; color: {color:Text};}
 
       #body {background-color: {color:Background}; padding: 1.5em 0.25em;}
       #content {position: relative; width: 500px; margin: 0 auto;}
@@ -59,14 +60,11 @@
       h1 a {color: {color:Text}; padding: 0 0.25em; font-weight: bold;}
 
       h2, h3 {line-height: 18pt;}
-      p, pre, ul, ol, blockquote, form
-        {margin: 9pt 0 18pt; line-height: 18pt;}
-      blockquote {padding-left: 1em; margin-left: 2pt;
-                  border-left: 0.25em solid {color:Minor};}
+      p, pre, ul, ol, blockquote, form {margin: 9pt 0 18pt; line-height: 18pt;}
+      blockquote {padding-left: 1em; margin-left: 2pt; border-left: 0.25em solid {color:Minor};}
       pre {overflow-x: auto; font-size: 11pt;}
 
-      #description {position: absolute; left: 530px; color: {color:Minor};
-                    font-size: 11pt; width: 10em;}
+      #description {position: absolute; left: 530px; color: {color:Minor}; font-size: 11pt; width: 10em;}
       #description p, #description form {margin-top: 0;}
       #description a {color: {color:Secondary};}
       #description a:hover {color: {color:Text};}
@@ -75,8 +73,7 @@
          text-transform: lowercase; width: 90%; border: solid {color:Minor};
          border-width: 0 1px 1px 0;}
       #description .submit {height: 0; overflow: hidden; display: block;}
-      #description .meta {word-spacing: 0.25em; font-size: 10pt;
-                          text-transform: uppercase;}
+      #description .meta {word-spacing: 0.25em; font-size: 10pt; text-transform: uppercase;}
       #description .meta a {color: {color:Minor};}
       #description .meta a:hover {color: {color:Text};}
 
@@ -86,15 +83,13 @@
       .post img {max-width: 100%;}
 
       .post-body h3 {font-size: 1.25em; position: relative;}
-      .post-body a {font-weight: bold; color: {color:Link};
-                    border-bottom: 1px solid transparent;}
+      .post-body a {font-weight: bold; color: {color:Link}; border-bottom: 1px solid transparent;}
       .post-body a:hover {color: {color:Text}; border-bottom-color: {color:Minor};}
       .post-body .image a {border-width: 0;}
       .post-body ul ul, .post-body ul ol, .post-body ol ol, .post-body ol ul,
         .post-body blockquote ul, .post-body blockquote ol {margin-left: 1.5em;}
 
-      .permalink {font-size: 11pt; position: absolute; right: 530px;
-                  text-align: right;}
+      .permalink {font-size: 11pt; position: absolute; right: 530px; text-align: right;}
       .permalink a {color: {color:Minor}; white-space: nowrap; padding: 0 0 4.5pt 9pt;}
       .permalink a:hover {color: {color:Text};}
 
@@ -157,9 +152,15 @@
     <a href="/archive">Archive</a>
     <span class="dim">/</span>
     <a href="{RSS}">RSS</a>
+    {block:IfLinkToLikedPosts}
+      {block:Likes}
+      <br/>
+      <a href="http://www.tumblr.com/liked/by/{Name}">Stuff I Like</a>
+      {/block:Likes}
+    {/block:IfLinkToLikedPosts}
     {block:IfLinkToTheme}
-    <br/>
-    <a href="http://www.tumblr.com/theme/1386">Use This Theme</a>
+      <br/>
+      <a href="http://www.tumblr.com/theme/1386">Use This Theme</a>
     {/block:IfLinkToTheme}
   </p>
 </div>
@@ -229,6 +230,14 @@
       {block:Caption}
       <div class="caption">{Caption}</div>
       {/block:Caption}
+
+      {block:IfShowAudioArtwork}
+        {block:AlbumArt}
+          <div class="image">
+            <a href="{AlbumArtURL}"><img src="{AlbumArtURL}" alt="Artwork"/></a>
+          </div>
+        {/block:AlbumArt}
+      {/block:IfShowAudioArtwork}
     </div>
     {/block:Audio}
 
