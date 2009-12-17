@@ -21,7 +21,6 @@
     <meta name="font:Body" content="'Helvetica Neue', Arial, Helvetica, sans-serif"/>
 
     <meta name="if:Show post notes" content="1"/>
-    <meta name="if:Show audio artwork" content="1"/>
     <meta name="if:Semitransparent audio player" content="1"/>
     <meta name="if:Link to liked posts" content="0"/>
     <meta name="if:Link to theme" content="0"/>
@@ -230,14 +229,6 @@
       {block:Caption}
       <div class="caption">{Caption}</div>
       {/block:Caption}
-
-      {block:IfShowAudioArtwork}
-        {block:AlbumArt}
-          <div class="image">
-            <a href="{AlbumArtURL}"><img src="{AlbumArtURL}" alt="Artwork"/></a>
-          </div>
-        {/block:AlbumArt}
-      {/block:IfShowAudioArtwork}
     </div>
     {/block:Audio}
 
