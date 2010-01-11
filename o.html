@@ -25,6 +25,8 @@
     <meta name="if:Link to liked posts" content="0"/>
     <meta name="if:Link to theme" content="0"/>
 
+    <meta name="text:Disqus Shortname" content="" />
+
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
     <link rel="icon" href="{Favicon}"/>
     <meta name="description" content="{MetaDescription}"/>
@@ -122,6 +124,9 @@
       .audio-post .audio {opacity: 0.75;}
       {/block:IfSemitransparentAudioPlayer}
 
+      #disqus_thread {margin-top: 54pt;}
+      #disqus_thread a {color: {color:Secondary};}
+
       .notes {color: {color:Minor}; margin-top: 54pt;}
       .notes li {list-style: none; margin-bottom: 18pt;}
       .notes img, .notes .clear {display: none;}
@@ -171,15 +176,22 @@
   <li class="post">
 
     <h2 class="permalink">
-      {block:NewDayDate}
-      <a title="{NoteCountWithLabel}"
-        href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a>
-      {/block:NewDayDate}
+          {block:NewDayDate}
+          <a title="{NoteCountWithLabel}"
+            href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a>
+          {/block:NewDayDate}
 
-      {block:SameDayDate}
-      <a title="{NoteCountWithLabel}"
-        href="{Permalink}">&rarr;</a>
-      {/block:SameDayDate}
+        {block:IfNotDisqusShortName}
+          {block:SameDayDate}
+          <a title="{NoteCountWithLabel}"
+            href="{Permalink}">&rarr;</a>
+          {/block:SameDayDate}
+        {/block:IfNotDisqusShortName}
+
+        {block:IfDisqusShortname}
+          <a title="{NoteCountWithLabel}"
+            href="{Permalink}#disqus_thread"></a>
+        {/block:IfDisqusShortname}
     </h2>
 
     {block:Regular}
@@ -261,6 +273,14 @@
     </div>
     {/block:Conversation}
 
+    {block:IfDisqusShortname}
+    {block:Permalink}
+    <div id="disqus_thread"></div>
+    <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+    <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+    {/block:Permalink}
+    {/block:IfDisqusShortname}
+
     {block:IfShowPostNotes}
       {block:PostNotes}
         {PostNotes}
@@ -282,5 +302,22 @@
 
       </div>
     </div>
+
+    {block:IfDisqusShortname}
+    <script type="text/javascript">
+    //<![CDATA[
+    (function() {
+        var links = document.getElementsByTagName('a');
+        var query = '?';
+        for(var i = 0; i < links.length; i++) {
+        if(links[i].href.indexOf('#disqus_thread') >= 0) {
+            query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+        }
+        }
+        document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+    })();
+    //]]>
+    </script>
+    {/block:IfDisqusShortname}
   </body>
 </html>
