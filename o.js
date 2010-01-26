@@ -9,25 +9,20 @@ function rgbToHex(rgbString) {
 }
 
 $(document).ready(function() {
-    var darkTheme = $('body').is('.dark');
+    var darkTheme = $(document.body).is('.dark');
     var bgColor = rgbToHex($('body').css('background-color'));
 
-    $('.post-body').find('h1,h2,h3,h4,h5,h6, p,blockquote,li').each(function() {
-        h = $(this).html();
-
-        // Use nice ampersands and fix widows.
-        // <http://justinhileman.info/articles/more-jquery-typography>
-        h = h.replace(/&amp;/g, '<span class="amp">&amp;<\/span>');
-        if (!h.match(/&nbsp;/)) {
-            h = h.replace(/\s([^\s>]{0,10})\s*$/, '&nbsp;$1')
+    // Use nice ampersands
+    // http://patrickhaney.com/thinktank/2008/08/19/automatic-awesompersands
+    $('.post-body').find("*:contains('&')").contents().each(function() {
+        if (this.nodeType == 3) {  // text
+            $(this).replaceWith(this.nodeValue.replace(/&/g, '<span class="amp">&amp;</span>'));
         }
-
-        $(this).html(h);
     });
 
-    $('object').each(function() {
+    $('.post-body object').each(function() {
         // Make YouTube players match the theme's background colour, and enable HD playback.
-        // <http://matthewbuchanan.name/post/261951286/improving-the-youtube-player>
+        // http://matthewbuchanan.name/post/261951286/improving-the-youtube-player
         if (!darkTheme) {
             if ($(this).find("param[value^='http://www.youtube.com']").length) {
                 var parent = $(this).parent();
