@@ -12,9 +12,11 @@ $(document).ready(function() {
     var darkTheme = $(document.body).is('.dark');
     var bgColor = rgbToHex($('body').css('background-color'));
 
-    // Use nice ampersands
+    // Use nice ampersands.
     // http://patrickhaney.com/thinktank/2008/08/19/automatic-awesompersands
-    $('.post-body').find("*:contains('&')").contents().each(function() {
+    var tags = ['h1','h2','h3','h4','h5','h6','p','blockquote','li'];
+    var amp_tags = jQuery.map(tags, function(t) { return t + ":contains('&')"; }).join(',');
+    $('.post-body').find(amp_tags).contents().each(function() {
         if (this.nodeType == 3) {  // text
             $(this).replaceWith(this.nodeValue.replace(/&/g, '<span class="amp">&amp;</span>'));
         }
