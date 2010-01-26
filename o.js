@@ -9,6 +9,7 @@ function rgbToHex(rgbString) {
 }
 
 $(document).ready(function() {
+    var darkTheme = $('body').is('.dark');
     var bgColor = rgbToHex($('body').css('background-color'));
 
     $('.post-body').find('h1,h2,h3,h4,h5,h6, p,blockquote,li').each(function() {
@@ -27,23 +28,25 @@ $(document).ready(function() {
     $('object').each(function() {
         // Make YouTube players match the theme's background colour, and enable HD playback.
         // <http://matthewbuchanan.name/post/261951286/improving-the-youtube-player>
-        if ($(this).find("param[value^='http://www.youtube.com']").length) {
-            var parent = $(this).parent();
-            var youtubeCode = parent.html();
-            var params = "";
-            if (youtubeCode.toLowerCase().indexOf("<param") == -1) {
-                $("param", this).each(function() {
-                    params += $(this).get(0).outerHTML;
-                });
+        if (!darkTheme) {
+            if ($(this).find("param[value^='http://www.youtube.com']").length) {
+                var parent = $(this).parent();
+                var youtubeCode = parent.html();
+                var params = "";
+                if (youtubeCode.toLowerCase().indexOf("<param") == -1) {
+                    $("param", this).each(function() {
+                        params += $(this).get(0).outerHTML;
+                    });
+                }
+                var oldOpts = /rel=0/g;
+                var newOpts = "rel=0&amp;hd=1&amp;color1=0x" + bgColor + "&amp;color2=0x" + bgColor;
+                youtubeCode = youtubeCode.replace(oldOpts, newOpts);
+                if (params != "") {
+                    params = params.replace(oldOpts, newOpts);
+                    youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
+                }
+                parent.html(youtubeCode);
             }
-            var oldOpts = /rel=0/g;
-            var newOpts = "rel=0&amp;hd=1&amp;color1=0x" + bgColor + "&amp;color2=0x" + bgColor;
-            youtubeCode = youtubeCode.replace(oldOpts, newOpts);
-            if (params != "") {
-                params = params.replace(oldOpts, newOpts);
-                youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
-            }
-            parent.html(youtubeCode);
         }
     });
 });
