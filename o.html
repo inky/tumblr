@@ -66,6 +66,11 @@
       p, pre, ul, ol, blockquote, form {margin: 9pt 0 18pt; line-height: 18pt;}
       blockquote {padding-left: 1em; margin-left: 2pt; border-left: 0.25em solid {color:Minor};}
       pre {overflow-x: auto; font-size: 11pt;}
+      sup, sub {height: 0; line-height: 1; vertical-align: baseline; _vertical-align: bottom; position: relative;}
+      sup {bottom: 0.5ex;}
+      sub {top: 0.5ex;}
+      sup a {font-weight: normal !important; padding: 0 1px;}
+      hr {height: 0; margin: 0 0 18pt; border: solid {color:Minor}; border-width: 2pt 0 0;}
 
       #description {position: absolute; left: 530px; color: {color:Minor}; font-size: 11pt; width: 10em;}
       #description p, #description form {margin-top: 0;}
@@ -134,6 +139,9 @@
       .notes img, .notes .clear {display: none;}
       .notes a {color: {color:Secondary};}
       .notes a:hover {color: {color:Text};}
+
+      .footnotes a[rev="footnote"] {color: {color:Secondary};}
+      .footnotes hr {margin: 34pt 0 18pt;}
 
       #footer {text-align: center; word-spacing: 0.75em; margin-top:4.5em;}
       #footer a {color: {color:Secondary}; font-weight:bold; padding: 0.25em 0.5em;}
