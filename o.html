@@ -73,7 +73,7 @@
       hr {height: 0; margin: 0 0 18pt; border: solid {color:Minor}; border-width: 2pt 0 0;}
 
       #description {position: absolute; left: 530px; color: {color:Minor}; font-size: 11pt; width: 10em;}
-      #description p, #description form {margin-top: 0;}
+      #description p, #description form, #description ul {margin-top: 0;}
       #description a {color: {color:Secondary};}
       #description a:hover {color: {color:Text};}
       #description form .input
@@ -81,7 +81,7 @@
          text-transform: lowercase; width: 90%; border: solid {color:Minor};
          border-width: 0 1px 1px 0;}
       #description .submit {height: 0; overflow: hidden; display: block;}
-      #description .meta {word-spacing: 0.25em; font-size: 10pt; text-transform: uppercase;}
+      #description .meta {list-style: none; word-spacing: 0.25em; font-size: 10pt; text-transform: uppercase;}
       #description .meta a {color: {color:Minor};}
       #description .meta a:hover {color: {color:Text};}
 
@@ -169,21 +169,25 @@
 
   <p>{Description}</p>
 
-  <p class="meta">
-    <a href="/archive">Archive</a>
-    <span class="dim">/</span>
-    <a href="{RSS}">RSS</a>
+  {block:HasPages}
+  <ul class="pages meta">
+    {block:Pages}
+    <li><a href="{URL}">{Label}</a></li>
+    {/block:Pages}
+  </ul>
+  {/block:HasPages}
+
+  <ul class="meta">
+    <li><a href="/archive">Archive</a> <span class="dim">/</span> <a href="{RSS}">RSS</a></li>
     {block:IfLinkToLikedPosts}
       {block:Likes}
-      <br/>
-      <a href="http://www.tumblr.com/liked/by/{Name}">Stuff I Like</a>
+      <li><a href="http://www.tumblr.com/liked/by/{Name}">Stuff I Like</a></li>
       {/block:Likes}
     {/block:IfLinkToLikedPosts}
     {block:IfLinkToTheme}
-      <br/>
-      <a href="http://www.tumblr.com/theme/1386">Use This Theme</a>
+    <li><a href="http://www.tumblr.com/theme/1386">Use This Theme</a></li>
     {/block:IfLinkToTheme}
-  </p>
+  </ul>
 </div>
 
 <ul id="posts">
