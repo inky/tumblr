@@ -194,6 +194,7 @@
   {block:Posts}
   <li class="post">
 
+    {block:Date}
     <h2 class="permalink">
           {block:NewDayDate}
           <a title="{NoteCountWithLabel}"
@@ -212,6 +213,7 @@
             href="{Permalink}#disqus_thread"></a>
         {/block:IfDisqusShortname}
     </h2>
+    {/block:Date}
 
     {block:Regular}
     <div class="post-body text-post">
@@ -292,13 +294,13 @@
     </div>
     {/block:Conversation}
 
-    {block:IfDisqusShortname}
     {block:Permalink}
+    {block:IfDisqusShortname}
     <div id="disqus_thread"></div>
     <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
     <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
-    {/block:Permalink}
     {/block:IfDisqusShortname}
+    {/block:Permalink}
 
     {block:IfShowPostNotes}
       {block:PostNotes}
