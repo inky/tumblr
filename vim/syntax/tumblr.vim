@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:     Tumblr HTML Theme
 " Maintainer:   Liam Cooke <liamcooke@gmail.com>
-" URL:          http://github.com/inky/tumblr/blob/master/vim/syntax/tumblr.vim
+" URL:          http://github.com/inky/tumblr/tree/master/vim/
 " Last Change:  2010 Mar 10
 
 runtime! syntax/html.vim
