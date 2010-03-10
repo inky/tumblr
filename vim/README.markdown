@@ -9,12 +9,11 @@ This will extend HTML syntax highlighting for files with the extension
 Installation
 ------------
 
-1. Copy the [`syntax/tumblr.vim`][syntaxfile] file to `~/.vim/syntax/tumblr.vim`
+Get the syntax file:
 
-2. Copy the [`filetype.vim`][filetypefile] file to the `~/.vim` folder.
-   If this file already exists, just append the three lines beginning with
-   `augroup tumblr`.
+    cd ~/.vim/syntax/
+    wget http://github.com/inky/tumblr/raw/master/vim/syntax/tumblr.vim
 
+Add the following line to `~/.vim/filetype.vim`:
 
-[syntaxfile]: http://github.com/inky/tumblr/blob/master/vim/syntax/tumblr.vim
-[filetypefile]: http://github.com/inky/tumblr/blob/master/vim/filetype.vim
+    au BufRead,BufNewFile *.tumblr.html setfiletype tumblr
