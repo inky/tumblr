@@ -1,0 +1,20 @@
+tumblr.vim
+==========
+
+Vim syntax highlighting for Tumblr themes.
+
+This will extend HTML syntax highlighting for files with the extension
+`.tumblr.html` (e.g. `mytheme.tumblr.html`).
+
+Installation
+------------
+
+1. Copy the [`syntax/tumblr.vim`][syntaxfile] file to `~/.vim/syntax/tumblr.vim`
+
+2. Copy the [`filetype.vim`][filetypefile] file to the `~/.vim` folder.
+   If this file already exists, just append the three lines beginning with
+   `augroup tumblr`.
+
+
+[syntaxfile]: http://github.com/inky/tumblr/blob/master/vim/syntax/tumblr.vim
+[filetypefile]: http://github.com/inky/tumblr/blob/master/vim/filetype.vim
