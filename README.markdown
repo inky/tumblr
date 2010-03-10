@@ -1,10 +1,7 @@
-Tumblr themes by inky
-=====================
+Tumblr stuff
+============
 
-## Branches
-
-* **themes** (this branch): public Tumblr themes
-* [master](http://github.com/inky/tumblr/tree/master): miscellaneous code
+Tumblr themes and other stuff.
 
 ## Links
 
