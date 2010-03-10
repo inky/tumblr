@@ -7,8 +7,10 @@
 runtime! syntax/html.vim
 unlet b:current_syntax
 
-syntax match tumblrBlock '{/\?block:[A-Za-z0-9-]\+}' oneline containedin=ALL
-syntax match tumblrTag '{[A-Za-z0-9-:]\+}' oneline containedin=ALL
+syntax region cssDefinition transparent matchgroup=cssBraces start='{' end='}' contains=css.*Attr,css.*Prop,cssComment,cssValue.*,cssColor,cssURL,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,tumblrTag
+
+syntax match tumblrBlock '{/\?block:[A-Za-z0-9-]\+}' containedin=ALL
+syntax match tumblrTag '{[A-Za-z0-9-:]\+}' containedin=ALL
 
 hi def link tumblrBlock Label
 hi def link tumblrTag Identifier
