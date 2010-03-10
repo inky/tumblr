@@ -11,6 +11,7 @@ syntax region cssDefinition transparent matchgroup=cssBraces start='{' end='}' c
 
 syntax match tumblrBlock '{/\?block:[A-Za-z0-9-]\+}' containedin=ALL
 syntax match tumblrTag '{[A-Za-z0-9-:]\+}' containedin=ALL
+syntax match tumblrTag '{[A-Za-z0-9-:]\+\( [A-Za-z0-9]\+="[A-Za-z0-9]\+"\)*}' containedin=ALL
 
 hi def link tumblrBlock Label
 hi def link tumblrTag Identifier
