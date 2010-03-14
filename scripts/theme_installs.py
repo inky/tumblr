@@ -28,16 +28,13 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
 """
-import gzip
 import optparse
-import re
 import sys
-import urllib, urllib2
-from StringIO import StringIO
 
 from BeautifulSoup import BeautifulSoup
 
 from openanything import fetch
+
 
 class HumanNumber:
     def __init__(self, string):
@@ -70,6 +67,7 @@ def theme_installs(id, full_response=False):
     except AttributeError:
         response['data'] = None
     return full_response and response or response['data']
+
 
 def main():
     parser = optparse.OptionParser(usage='%prog [options] theme_id')
