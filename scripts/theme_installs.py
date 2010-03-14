@@ -28,6 +28,11 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
 """
+__author__ = 'Liam Cooke'
+__version__ = '2010.03.14'
+__copyright__ = 'Copyright (c) 2010 Liam Cooke'
+__url__ = 'http://github.com/inky/tumblr/tree/master/scripts/'
+
 import optparse
 import sys
 
@@ -35,6 +40,8 @@ from BeautifulSoup import BeautifulSoup
 
 from openanything import fetch
 
+
+USER_AGENT = 'ThemeInstalls/%s (Python; +%s)' % (__version__, __url__)
 
 class HumanNumber:
     def __init__(self, string):
@@ -58,7 +65,7 @@ def theme_installs(id, full_response=False):
     Return the number of installs for a given theme. id may be a numeric id
     (e.g. 1386) or a complete url (e.g. 'http://www.tumblr.com/theme/1386').
     """
-    response = fetch(theme_url(id))
+    response = fetch(theme_url(id), agent=USER_AGENT)
 
     soup = BeautifulSoup(response['data'])
     try:
