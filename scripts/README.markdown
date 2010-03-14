@@ -2,8 +2,8 @@ Tumblr scripts
 ==============
 
 
-`theme_installs.py`
--------------------
+theme_installs.py
+-----------------
 
 Prints the number of times a given theme has been installed. Both of the
 following commands are valid:
@@ -22,8 +22,8 @@ Requires:
 * openanything.py (included in this directory)
 
 
-`tag_list.py`
--------------
+tag_list.py
+-----------
 
 Prints a JSON list with all of the user's tags and their frequencies. This is
 a quick 'n' dirty solution; use with care.
