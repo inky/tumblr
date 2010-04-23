@@ -28,6 +28,8 @@
 
   <meta name="text:About page URL" content=""/>
 
+  <meta name="text:Disqus Shortname" content="" />
+
   <title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
   {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
 
@@ -107,6 +109,8 @@ form .submit {height:0; overflow:hidden; display:block;}
 p.meta {color:{color:Minor Text}; font-style:italic; margin:0;
         width:8.25em; text-indent:-0.75em; text-transform:lowercase;}
 .meta a {font-style:normal; white-space:nowrap;}
+.meta .comments_link {color:{color:Minor Text}; margin:0;
+                      width:8.25em; text-indent:-0.75em; text-transform:lowercase;}
 .meta .notecount, .meta .plays {font-weight:bold; font-style:normal;}
 .reblog a, .tags a {display:block; margin-left:0.75em;}
 
@@ -168,6 +172,8 @@ abbr, acronym {font-variant:small-caps;}
   .chat-post .speaker7 .label, .chat-post .speaker8 .label
     {font-family:{font:Heading};}
 
+#disqus_thread {clear:both; margin: 3em 0 1.5em; padding-top: 25px; border-top:1px solid {color:Highlight};}
+
 .postnotes {clear:both; margin:3em 0 1.5em; border-top:1px solid {color:Highlight};}
 .notes {color:{color:Highlight}; padding-top:1.5em; margin-top:-1px;}
 .notes .action {color:{color:Minor Text};}
@@ -181,6 +187,8 @@ abbr, acronym {font-variant:small-caps;}
 
 .day .month {font-variant:small-caps;}
 {block:DayPage}.day {font-weight:bold;}{/block:DayPage}
+
+.content.text-post img {max-width:100%;}
 
 {CustomCSS}
   </style>
@@ -209,6 +217,9 @@ abbr, acronym {font-variant:small-caps;}
     {block:IfAboutPageURL}
       <li><a href="{text:About page URL}">About</a></li>
     {/block:IfAboutPageURL}
+    {block:HasPages}
+        {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+    {/block:HasPages}
     <li><a href="/archive">Archive</a></li>
     <li><a href="/random">Random post</a></li>
     <li><a href="{RSS}">Subscribe</a></li>
@@ -234,14 +245,16 @@ abbr, acronym {font-variant:small-caps;}
   <li class="post" id="post{PostID}">
     <div class="meta">
       <h2>
-        <a title="Link to this post"
-          href="{Permalink}">{24HourWithZero}:{Minutes}</a>
+        {block:Date}<a title="Link to this post"
+          href="{Permalink}">{24HourWithZero}:{Minutes}</a>{/block:Date}
         {block:NewDayDate}<a title="Link to everything posted this day"
           href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"
           class="day">{DayOfMonth}{DayOfMonthSuffix} <span
             class="month">{ShortMonth}</span> {Year}</a>
         {/block:NewDayDate}
       </h2>
+
+      {block:Date}{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread" class="meta comments_link"></a>{block:IfDisqusShortname}{/block:Date}
 
       {block:NoteCount}<p class="meta">
         notes:
@@ -330,6 +343,14 @@ abbr, acronym {font-variant:small-caps;}
 
     <div class="clear">&nbsp;</div>
 
+    {block:IfDisqusShortname}
+    {block:PermalinkPage}
+    <div id="disqus_thread"></div>
+    <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+    <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+    {/block:PermalinkPage}
+    {/block:IfDisqusShortname}
+
     {block:PostNotes}<div class="postnotes">
       {PostNotes}
       <div class="clear">&nbsp;</div>
@@ -398,9 +419,25 @@ abbr, acronym {font-variant:small-caps;}
 
   <p id="colophon">
     Powered by <a href="http://www.tumblr.com/">Tumblr</a>.
-    Theme by <a href="http://inky.tumblr.com/">Liam Cooke</a>.
   </p>
 </div>
+
+{block:IfDisqusShortname}
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+    var links = document.getElementsByTagName('a');
+    var query = '?';
+    for(var i = 0; i < links.length; i++) {
+    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+    }
+    }
+    document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+})();
+//]]>
+</script>
+{/block:IfDisqusShortname}
 
 </body>
 </html>

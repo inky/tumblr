@@ -4,7 +4,7 @@
 
   Obsidian [version 1.3]
   Tumblr theme by Liam Cooke <http://inky.tumblr.com/>
-  Free to use and alter, as long as credit is given.
+  Free to use and alter, as long as this message is left intact.
 
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -29,6 +29,7 @@
     <!-- END DEFAULT COLORS -->
 
     <title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
     <link rel="shortcut icon" href="{Favicon}"/>
     <style type="text/css" media="all">
@@ -570,7 +571,7 @@
         {block:Photo}
         <div class="body photo">
           <p class="image">{LinkOpenTag}<img
-          src="{PhotoURL-500}" alt="[image]"/>{LinkCloseTag}</p>
+          src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}</p>
           
           {block:Caption}
           <div class="caption">{Caption}</div>
@@ -745,8 +746,7 @@
     <ul>
       <li>
         <strong>Credits:</strong>
-        <span>Designed by <a href="http://inky.tumblr.com/">Liam Cooke</a>
-          and powered by <a href="http://www.tumblr.com/">Tumblr</a>.</span>
+        <span>Powered by <a href="http://www.tumblr.com/">Tumblr</a>.</span>
       </li>
 
       {block:GroupMembers}
