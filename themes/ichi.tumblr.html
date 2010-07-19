@@ -210,19 +210,21 @@ abbr, acronym {font-variant:small-caps;}
 
   <form action="/search" method="get">
     <input type="search" placeholder="Search…" name="q" value="" size="15"/>&nbsp;
-    <span class="submit"><input type="submit" value="Search"/></span>
+    <span class="submit"><input type="submit" value="{lang:Search}"/></span>
   </form>
 
   <ul>
     {block:IfAboutPageURL}
-      <li><a href="{text:About page URL}">About</a></li>
+      <li><a href="{text:About page URL}">{lang:About}</a></li>
     {/block:IfAboutPageURL}
     {block:HasPages}
         {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
     {/block:HasPages}
-    <li><a href="/archive">Archive</a></li>
-    <li><a href="/random">Random post</a></li>
-    <li><a href="{RSS}">Subscribe</a></li>
+    {block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
+    {block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+    <li><a href="/archive">{lang:Archive}</a></li>
+    <li><a href="/random">{lang:Random post}</a></li>
+    <li><a href="{RSS}">{lang:Subscribe}</a></li>
     {block:IfLinkToSubmitAPost}
       <li><a href="/submit">Submit a post</a></li>
     {/block:IfLinkToSubmitAPost}
@@ -257,17 +259,16 @@ abbr, acronym {font-variant:small-caps;}
       {block:Date}{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread" class="meta comments_link"></a>{block:IfDisqusShortname}{/block:Date}
 
       {block:NoteCount}<p class="meta">
-        notes:
+        {lang:Notes}:
         <span class="notecount">{NoteCount}</span>
       </p>{/block:NoteCount}
 
       {block:RebloggedFrom}<p class="reblog">
-        reblogged from:
-        <a href="{ReblogParentUrl}">{ReblogParentName}</a>
+        {lang:Reblogged from ReblogParentName 2}
       </p>{/block:RebloggedFrom}
 
       {block:HasTags}<p class="tags">
-        tags:
+        {lang:Tags}:
         {block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}
       </p>{/block:HasTags}
     </div>
@@ -283,7 +284,7 @@ abbr, acronym {font-variant:small-caps;}
     {block:Photo}
     {block:HighRes}{block:IfLinkForLargeImages}
     <p class="meta">
-      image: <a href="{PhotoURL-HighRes}">download</a>
+      image: <a href="{PhotoURL-HighRes}">{lang:Download}</a>
     </p>
     {/block:IfLinkForLargeImages}{/block:HighRes}
     <div class="content photo-post">
@@ -333,7 +334,7 @@ abbr, acronym {font-variant:small-caps;}
     {/block:Video}
 
     {block:Audio}
-    <p class="meta">plays: <span class="plays">{FormattedPlayCount}</span></p>
+    <p class="meta">{lang:Plays}: <span class="plays">{FormattedPlayCount}</span></p>
     <div class="content audio-post">
       <div class="audio">{AudioPlayerBlack}</div>
 
@@ -347,7 +348,7 @@ abbr, acronym {font-variant:small-caps;}
     {block:PermalinkPage}
     <div id="disqus_thread"></div>
     <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-    <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+    <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
     {/block:PermalinkPage}
     {/block:IfDisqusShortname}
 
@@ -364,31 +365,31 @@ abbr, acronym {font-variant:small-caps;}
   <div id="pagination">
   {block:Pagination}
     <p class="back">&nbsp;{block:NextPage}
-      <a href="{NextPage}">More</a> &rarr;
+      <a href="{NextPage}">{lang:More}</a> &rarr;
     {/block:NextPage}</p>
     <p class="forward">{block:PreviousPage}
-      &larr; <a href="{PreviousPage}">Back</a>
+      &larr; <a href="{PreviousPage}">{lang:Back}</a>
     {/block:PreviousPage}&nbsp;</p>
     <p class="page">
-      page {CurrentPage} of {TotalPages}
+      {lang:Page CurrentPage of TotalPages}
     </p>
   {/block:Pagination}
 
   {block:PermalinkPagination}
     {block:PreviousPost}<p class="back">
-      <a href="{PreviousPost}">Older Post</a> &rarr;
+      <a href="{PreviousPost}">{lang:Older post}</a> &rarr;
     </p>{/block:PreviousPost}
     {block:NextPost}<p class="forward">
-      &larr; <a href="{NextPost}">Newer Post</a>
+      &larr; <a href="{NextPost}">{lang:Newer post}</a>
     {/block:NextPost}</p>
   {/block:PermalinkPagination}
 
   {block:DayPagination}
     {block:PreviousDayPage}<p class="back">
-      <a href="{PreviousDayPage}">Previous Day</a> &rarr;
+      <a href="{PreviousDayPage}">{lang:Previous day}</a> &rarr;
     {/block:PreviousDayPage}</p>
     {block:NextDayPage}<p class="forward">
-      &larr; <a href="{NextDayPage}">Next Day</a>
+      &larr; <a href="{NextDayPage}">{lang:Next day}</a>
     </p>{/block:NextDayPage}
   {/block:DayPagination}
   </div>
@@ -396,7 +397,7 @@ abbr, acronym {font-variant:small-caps;}
   {block:IfShowPeopleIFollow}
     {block:GroupMembers}
       <p id="members" class="avatars">
-        <span>Members:</span>
+        <span>{lang:Members}:</span>
         {block:GroupMember}
           <a href="{GroupMemberURL}"><img
             src="{GroupMemberPortraitURL-30}" alt="[{GroupMemberName}]"
@@ -407,7 +408,7 @@ abbr, acronym {font-variant:small-caps;}
 
     {block:Following}
       <p id="following" class="avatars">
-        <span>Following:</span>
+        <span>{lang:Following}:</span>
         {block:Followed}
           <a href="{FollowedURL}"><img
             src="{FollowedPortraitURL-30}" alt="[{FollowedName}]"
@@ -418,7 +419,7 @@ abbr, acronym {font-variant:small-caps;}
   {/block:IfShowPeopleIFollow}
 
   <p id="colophon">
-    Powered by <a href="http://www.tumblr.com/">Tumblr</a>.
+    {lang:Powered by Tumblr 2}
   </p>
 </div>
 
