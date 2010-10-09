@@ -131,6 +131,12 @@
       .audio-post .audio {opacity: 0.75;}
       {/block:IfSemitransparentAudioPlayer}
 
+      .post-source {color: {color:Secondary};}
+      .post-source a {color: {color:Secondary};}
+      .post-source a:hover {color: {color:Link};}
+      .post-source .prefix {font-size: 0.9em; text-transform: uppercase;
+                            letter-spacing: 0.1em; word-spacing: 0.1em;}
+
       #disqus_thread {margin-top: 54pt;}
       #disqus_thread a {color: {color:Secondary};}
 
@@ -298,6 +304,13 @@
       </ol>
     </div>
     {/block:Conversation}
+
+    {block:ContentSource}
+    <p class="post-source">
+      <span class="prefix">{lang:Source}:</span>
+      {SourceLink}
+    </p>
+    {/block:ContentSource}
 
     {block:Permalink}
     {block:IfDisqusShortname}
