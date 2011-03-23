@@ -44,6 +44,8 @@ INDENT_WIDTH = 4
 
 indents = lambda i: ' ' * i
 
+class TumblrURLException(Exception): pass
+
 def tidy_json(j):
     j = j.strip()
     return j[j.index('{') : j.rindex('}') + 1]
@@ -54,7 +56,7 @@ def find_int(path):
             return int(p)
         except ValueError:
             pass
-    raise ValueError
+    raise TumblrURLException
 
 def api_url(post_url):
     url = urlparse(post_url)
@@ -97,7 +99,12 @@ def main():
         parser.print_help()
         return 1
 
-    post = tumblr_post(args[0])
+    try:
+        post = tumblr_post(args[0])
+    except TumblrURLException:
+        sys.stderr.write('Error: URL must point to a single Tumblr post.\n')
+        return 1
+
     pretty_print(post['info'])
     print('\nReblog URL: %s' % post['reblog-url'])
 
