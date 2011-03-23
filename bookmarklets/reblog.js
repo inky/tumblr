@@ -10,18 +10,17 @@
         t = d.title,
         u = /\/([0-9]+)($|\/)/.exec(l.pathname),
         c = 'inkyrblg',
+        h = 'http://',
         p, r, s;
-
-    inkyrblg = function(o) {
-        p = o.posts[0];
-        w.location = 'http://www.tumblr.com/reblog/' + p.id + '/' + p['reblog-key'];
-    };
 
     if (u && u[1]) {
         d.title = '(Loading...)%20' + t;
-        w[c] = eval(c);
+        w[c] = function(o) {
+            p = o.posts[0];
+            w.location = h + 'www.tumblr.com/reblog/' + p.id + '/' + p['reblog-key'];
+        };
         s = d.createElement('SCRIPT');
-        s.src = 'http://' + l.host + '/api/read/json?callback=' + c + '&id=' + u[1];
+        s.src = h + l.host + '/api/read/json?callback=' + c + '&id=' + u[1];
         d.getElementsByTagName('HEAD')[0].appendChild(s);
     } else {
         alert('This will only work on a Tumblr post page.');
